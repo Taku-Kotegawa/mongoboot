@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div id="wrapper">
+    <h3>Login Screen</h3>
+    <!--/* (1) */-->
+    <div th:if="${param.keySet().contains('error')}"
+         th:with="exception=${#request.getAttribute('SPRING_SECURITY_LAST_EXCEPTION')} ?: ${session[SPRING_SECURITY_LAST_EXCEPTION]}">
+        <div th:if="${exception != null}" class="alert alert-error">
+            <span th:text="${exception.message}"></span><!--/* (2) */-->
+        </div>
+    </div>
+    <form th:action="@{/login}" method="post"> <!--/* (3) */-->
+        <table>
+            <tr>
+                <td><label for="username">User Name</label></td>
+                <td><input type="text" id="username" name="username"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button>Login</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<terasoluna.gfw.version>5.6.0.RELEASE</terasoluna.gfw.version>
 	</properties>
 
 	<dependencies>
@@ -81,6 +82,105 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- == Begin TERASOLUNA == -->
+		<!-- @see https://github.com/terasolunaorg/terasoluna-gfw#without-using-parent -->
+		<!-- terasoluna-gfw-recommended-dependencies を含めるとエラーになる -->
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web-jsp-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-jodatime-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-string</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-codepoints</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0201</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0208</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0208kanji</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0213kanji</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-validator</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-security-web-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-security-core-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-mybatis3-dependencies</artifactId>
+			<version>${terasoluna.gfw.version}</version>
+			<type>pom</type>
+		</dependency>
+		<!-- == End TERASOLUNA == -->
+
+		<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring-boot-starter -->
+		<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
+			<version>6.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.icegreen</groupId>
+			<artifactId>greenmail</artifactId>
+			<version>1.4.1</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>

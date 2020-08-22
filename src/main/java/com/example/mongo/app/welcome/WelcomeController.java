@@ -9,7 +9,8 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("name", "myname");
+        model.addAttribute("name", "mynameaaaabbbb");
+        model.addAttribute("test", "test");
         return "welcome/index.html";
     }
 
