@@ -8,10 +8,6 @@ import java.util.List;
 
 public interface PasswordHistoryRepository extends MongoRepository<PasswordHistory, String> {
 
-    // @Todo エラーの回避
-//    List<PasswordHistory> findByUsernameAndUsefromGreaterThanEqualSortByUsefromDesc(String username, LocalDateTime usefrom);
-
-
         List<PasswordHistory> findByUsername(String username);
 
         List<PasswordHistory> findByUsernameAndUseFromAfter(String username, LocalDateTime useFrom);
