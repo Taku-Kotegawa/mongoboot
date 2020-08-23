@@ -16,6 +16,7 @@
 package com.example.mongo.domain.service.authentication;
 
 import com.example.mongo.domain.model.authentication.Account;
+import com.example.mongo.domain.model.authentication.AccountImage;
 
 import java.time.LocalDateTime;
 
@@ -80,4 +81,6 @@ public interface AccountSharedService {
      * @param username
      */
     void clearPasswordValidationCache(String username);
+
+    AccountImage getImage(String username);
 }

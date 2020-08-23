@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public final class Account implements Serializable, Persistable<String> {
+public class Account implements Serializable, Persistable<String> {
 
     /**
      * バージョン

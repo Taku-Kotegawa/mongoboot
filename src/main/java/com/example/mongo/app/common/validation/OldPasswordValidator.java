@@ -55,6 +55,7 @@ public class OldPasswordValidator implements
         String oldPassword = (String) beanWrapper
                 .getPropertyValue(oldPasswordPropertyName);
 
+        oldPassword = oldPassword == null ? "" : oldPassword;
         Account account = accountSharedService.findOne(username);
         String currentPassword = account.getPassword();
 

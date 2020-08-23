@@ -26,7 +26,6 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.terasoluna.gfw.common.date.ClassicDateFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -40,9 +39,6 @@ import static com.example.mongo.app.common.Constants.ROLE;
 
 public class NotReusedPasswordValidator implements
         ConstraintValidator<NotReusedPassword, Object> {
-
-    @Inject
-    ClassicDateFactory dateFactory;
 
     @Inject
     AccountSharedService accountSharedService;
@@ -85,6 +81,8 @@ public class NotReusedPasswordValidator implements
         String newPassword = (String) beanWrapper
                 .getPropertyValue(newPasswordPropertyName);
 
+        newPassword = newPassword == null ? "" : newPassword;
+
         Account account = accountSharedService.findOne(username);
         String currentPassword = account.getPassword();
 
@@ -113,7 +111,7 @@ public class NotReusedPasswordValidator implements
 
     private boolean checkHistoricalPassword(String username,
                                             String newPassword, ConstraintValidatorContext context) {
-        LocalDateTime useFrom = dateFactory.newTimestamp().toLocalDateTime()
+        LocalDateTime useFrom = LocalDateTime.now()
                 .minusMinutes(passwordHistoricalCheckingPeriod);
         List<PasswordHistory> historyByTime = passwordHistorySharedService
                 .findHistoriesByUseFrom(username, useFrom);

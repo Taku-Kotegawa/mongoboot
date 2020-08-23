@@ -200,4 +200,9 @@ public class AccountSharedServiceImpl implements AccountSharedService {
     public void clearPasswordValidationCache(String username) {
     }
 
+    @Override
+    public AccountImage getImage(String username) {
+        return accountImageRepository.findById(username).orElse(null);
+    }
+
 }
