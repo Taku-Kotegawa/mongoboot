@@ -1,0 +1,2498 @@
+.
+├── LICENSE
+├── README.md
+├── build
+│   ├── config
+│   │   ├── postcss.config.js
+│   │   └── rollup.config.js
+│   ├── js
+│   │   ├── AdminLTE.js
+│   │   ├── CardRefresh.js
+│   │   ├── CardWidget.js
+│   │   ├── ControlSidebar.js
+│   │   ├── DirectChat.js
+│   │   ├── Dropdown.js
+│   │   ├── Layout.js
+│   │   ├── PushMenu.js
+│   │   ├── SiteSearch.js
+│   │   ├── Toasts.js
+│   │   ├── TodoList.js
+│   │   └── Treeview.js
+│   ├── npm
+│   │   ├── DocsPlugins.js
+│   │   ├── DocsPublish.js
+│   │   ├── Plugins.js
+│   │   └── Publish.js
+│   └── scss
+│       ├── AdminLTE-components.scss
+│       ├── AdminLTE-core.scss
+│       ├── AdminLTE-extra-components.scss
+│       ├── AdminLTE-pages.scss
+│       ├── AdminLTE-plugins.scss
+│       ├── AdminLTE-raw.scss
+│       ├── AdminLTE.scss
+│       ├── _alerts.scss
+│       ├── _bootstrap-variables.scss
+│       ├── _brand.scss
+│       ├── _buttons.scss
+│       ├── _callout.scss
+│       ├── _cards.scss
+│       ├── _carousel.scss
+│       ├── _colors.scss
+│       ├── _control-sidebar.scss
+│       ├── _direct-chat.scss
+│       ├── _dropdown.scss
+│       ├── _elevation.scss
+│       ├── _forms.scss
+│       ├── _info-box.scss
+│       ├── _layout.scss
+│       ├── _main-header.scss
+│       ├── _main-sidebar.scss
+│       ├── _miscellaneous.scss
+│       ├── _mixins.scss
+│       ├── _modals.scss
+│       ├── _navs.scss
+│       ├── _print.scss
+│       ├── _products.scss
+│       ├── _progress-bars.scss
+│       ├── _sidebar-mini.scss
+│       ├── _small-box.scss
+│       ├── _social-widgets.scss
+│       ├── _table.scss
+│       ├── _text.scss
+│       ├── _timeline.scss
+│       ├── _toasts.scss
+│       ├── _users-list.scss
+│       ├── _variables.scss
+│       ├── add
+│       ├── mixins
+│       │   ├── _accent.scss
+│       │   ├── _backgrounds.scss
+│       │   ├── _cards.scss
+│       │   ├── _custom-forms.scss
+│       │   ├── _direct-chat.scss
+│       │   ├── _miscellaneous.scss
+│       │   ├── _navbar.scss
+│       │   ├── _sidebar.scss
+│       │   └── _toasts.scss
+│       ├── pages
+│       │   ├── _404_500_errors.scss
+│       │   ├── _e-commerce.scss
+│       │   ├── _invoice.scss
+│       │   ├── _lockscreen.scss
+│       │   ├── _login_and_register.scss
+│       │   ├── _mailbox.scss
+│       │   ├── _profile.scss
+│       │   └── _projects.scss
+│       ├── parts
+│       │   ├── _components.scss
+│       │   ├── _core.scss
+│       │   ├── _extra-components.scss
+│       │   ├── _miscellaneous.scss
+│       │   ├── _pages.scss
+│       │   └── _plugins.scss
+│       ├── plugins
+│       │   ├── _bootstrap-slider.scss
+│       │   ├── _bootstrap-switch.scss
+│       │   ├── _fullcalendar.scss
+│       │   ├── _icheck-bootstrap.scss
+│       │   ├── _jqvmap.scss
+│       │   ├── _mapael.scss
+│       │   ├── _miscellaneous.scss
+│       │   ├── _mixins.scss
+│       │   ├── _pace.scss
+│       │   ├── _select2.scss
+│       │   ├── _sweetalert2.scss
+│       │   └── _toastr.scss
+│       └── ~bootstrap
+│           └── scss
+│               ├── _alert.scss
+│               ├── _badge.scss
+│               ├── _breadcrumb.scss
+│               ├── _button-group.scss
+│               ├── _buttons.scss
+│               ├── _card.scss
+│               ├── _carousel.scss
+│               ├── _close.scss
+│               ├── _code.scss
+│               ├── _custom-forms.scss
+│               ├── _dropdown.scss
+│               ├── _forms.scss
+│               ├── _functions.scss
+│               ├── _grid.scss
+│               ├── _images.scss
+│               ├── _input-group.scss
+│               ├── _jumbotron.scss
+│               ├── _list-group.scss
+│               ├── _media.scss
+│               ├── _mixins.scss
+│               ├── _modal.scss
+│               ├── _nav.scss
+│               ├── _navbar.scss
+│               ├── _pagination.scss
+│               ├── _popover.scss
+│               ├── _print.scss
+│               ├── _progress.scss
+│               ├── _reboot.scss
+│               ├── _root.scss
+│               ├── _spinners.scss
+│               ├── _tables.scss
+│               ├── _toasts.scss
+│               ├── _tooltip.scss
+│               ├── _transitions.scss
+│               ├── _type.scss
+│               ├── _utilities.scss
+│               ├── _variables.scss
+│               ├── bootstrap-grid.scss
+│               ├── bootstrap-reboot.scss
+│               ├── bootstrap.scss
+│               ├── mixins
+│               │   ├── _alert.scss
+│               │   ├── _background-variant.scss
+│               │   ├── _badge.scss
+│               │   ├── _border-radius.scss
+│               │   ├── _box-shadow.scss
+│               │   ├── _breakpoints.scss
+│               │   ├── _buttons.scss
+│               │   ├── _caret.scss
+│               │   ├── _clearfix.scss
+│               │   ├── _deprecate.scss
+│               │   ├── _float.scss
+│               │   ├── _forms.scss
+│               │   ├── _gradients.scss
+│               │   ├── _grid-framework.scss
+│               │   ├── _grid.scss
+│               │   ├── _hover.scss
+│               │   ├── _image.scss
+│               │   ├── _list-group.scss
+│               │   ├── _lists.scss
+│               │   ├── _nav-divider.scss
+│               │   ├── _pagination.scss
+│               │   ├── _reset-text.scss
+│               │   ├── _resize.scss
+│               │   ├── _screen-reader.scss
+│               │   ├── _size.scss
+│               │   ├── _table-row.scss
+│               │   ├── _text-emphasis.scss
+│               │   ├── _text-hide.scss
+│               │   ├── _text-truncate.scss
+│               │   ├── _transition.scss
+│               │   └── _visibility.scss
+│               ├── utilities
+│               │   ├── _align.scss
+│               │   ├── _background.scss
+│               │   ├── _borders.scss
+│               │   ├── _clearfix.scss
+│               │   ├── _display.scss
+│               │   ├── _embed.scss
+│               │   ├── _flex.scss
+│               │   ├── _float.scss
+│               │   ├── _interactions.scss
+│               │   ├── _overflow.scss
+│               │   ├── _position.scss
+│               │   ├── _screenreaders.scss
+│               │   ├── _shadows.scss
+│               │   ├── _sizing.scss
+│               │   ├── _spacing.scss
+│               │   ├── _stretched-link.scss
+│               │   ├── _text.scss
+│               │   └── _visibility.scss
+│               └── vendor
+│                   └── _rfs.scss
+├── composer.json
+├── dist
+│   ├── css
+│   │   ├── AdminLTE-components.css
+│   │   ├── AdminLTE-components.css.map
+│   │   ├── AdminLTE-core.css
+│   │   ├── AdminLTE-core.css.map
+│   │   ├── AdminLTE-extra-components.css
+│   │   ├── AdminLTE-extra-components.css.map
+│   │   ├── AdminLTE-pages.css
+│   │   ├── AdminLTE-pages.css.map
+│   │   ├── AdminLTE-plugins.css
+│   │   ├── AdminLTE-plugins.css.map
+│   │   ├── AdminLTE.css
+│   │   ├── AdminLTE.css.map
+│   │   ├── adminlte.css
+│   │   ├── adminlte.css.map
+│   │   ├── adminlte.min.css
+│   │   ├── adminlte.min.css.map
+│   │   ├── alt
+│   │   │   ├── adminlte.components.css
+│   │   │   ├── adminlte.components.css.map
+│   │   │   ├── adminlte.components.min.css
+│   │   │   ├── adminlte.components.min.css.map
+│   │   │   ├── adminlte.core.css
+│   │   │   ├── adminlte.core.css.map
+│   │   │   ├── adminlte.core.min.css
+│   │   │   ├── adminlte.core.min.css.map
+│   │   │   ├── adminlte.extra-components.css
+│   │   │   ├── adminlte.extra-components.css.map
+│   │   │   ├── adminlte.extra-components.min.css
+│   │   │   ├── adminlte.extra-components.min.css.map
+│   │   │   ├── adminlte.pages.css
+│   │   │   ├── adminlte.pages.css.map
+│   │   │   ├── adminlte.pages.min.css
+│   │   │   ├── adminlte.pages.min.css.map
+│   │   │   ├── adminlte.plugins.css
+│   │   │   ├── adminlte.plugins.css.map
+│   │   │   ├── adminlte.plugins.min.css
+│   │   │   └── adminlte.plugins.min.css.map
+│   │   ├── bootstrap-grid.css
+│   │   ├── bootstrap-grid.css.map
+│   │   ├── bootstrap-reboot.css
+│   │   ├── bootstrap-reboot.css.map
+│   │   ├── bootstrap.css
+│   │   └── bootstrap.css.map
+│   ├── img
+│   │   ├── AdminLTELogo.png
+│   │   ├── avatar.png
+│   │   ├── avatar04.png
+│   │   ├── avatar2.png
+│   │   ├── avatar3.png
+│   │   ├── avatar5.png
+│   │   ├── boxed-bg.jpg
+│   │   ├── boxed-bg.png
+│   │   ├── credit
+│   │   │   ├── american-express.png
+│   │   │   ├── cirrus.png
+│   │   │   ├── mastercard.png
+│   │   │   ├── mestro.png
+│   │   │   ├── paypal.png
+│   │   │   ├── paypal2.png
+│   │   │   └── visa.png
+│   │   ├── default-150x150.png
+│   │   ├── icons.png
+│   │   ├── photo1.png
+│   │   ├── photo2.png
+│   │   ├── photo3.jpg
+│   │   ├── photo4.jpg
+│   │   ├── prod-1.jpg
+│   │   ├── prod-2.jpg
+│   │   ├── prod-3.jpg
+│   │   ├── prod-4.jpg
+│   │   ├── prod-5.jpg
+│   │   ├── user1-128x128.jpg
+│   │   ├── user2-160x160.jpg
+│   │   ├── user3-128x128.jpg
+│   │   ├── user4-128x128.jpg
+│   │   ├── user5-128x128.jpg
+│   │   ├── user6-128x128.jpg
+│   │   ├── user7-128x128.jpg
+│   │   └── user8-128x128.jpg
+│   └── js
+│       ├── adminlte.js
+│       ├── adminlte.js.map
+│       ├── adminlte.min.js
+│       ├── adminlte.min.js.map
+│       ├── demo.js
+│       └── pages
+│           ├── dashboard.js
+│           ├── dashboard2.js
+│           └── dashboard3.js
+├── docs
+│   ├── 404.html
+│   ├── Gemfile
+│   ├── _config.yml
+│   ├── _includes
+│   │   ├── foot.html
+│   │   ├── footer.html
+│   │   ├── head.html
+│   │   ├── navbar.html
+│   │   └── sidebar.html
+│   ├── _layouts
+│   │   ├── default.html
+│   │   ├── home.html
+│   │   ├── page.html
+│   │   └── post.html
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── adminlte.css
+│   │   │   ├── adminlte.css.map
+│   │   │   ├── adminlte.min.css
+│   │   │   ├── adminlte.min.css.map
+│   │   │   ├── alt
+│   │   │   │   ├── adminlte.components.css
+│   │   │   │   ├── adminlte.components.css.map
+│   │   │   │   ├── adminlte.components.min.css
+│   │   │   │   ├── adminlte.components.min.css.map
+│   │   │   │   ├── adminlte.core.css
+│   │   │   │   ├── adminlte.core.css.map
+│   │   │   │   ├── adminlte.core.min.css
+│   │   │   │   ├── adminlte.core.min.css.map
+│   │   │   │   ├── adminlte.extra-components.css
+│   │   │   │   ├── adminlte.extra-components.css.map
+│   │   │   │   ├── adminlte.extra-components.min.css
+│   │   │   │   ├── adminlte.extra-components.min.css.map
+│   │   │   │   ├── adminlte.pages.css
+│   │   │   │   ├── adminlte.pages.css.map
+│   │   │   │   ├── adminlte.pages.min.css
+│   │   │   │   ├── adminlte.pages.min.css.map
+│   │   │   │   ├── adminlte.plugins.css
+│   │   │   │   ├── adminlte.plugins.css.map
+│   │   │   │   ├── adminlte.plugins.min.css
+│   │   │   │   └── adminlte.plugins.min.css.map
+│   │   │   ├── docs.css
+│   │   │   └── highlighter.css
+│   │   ├── img
+│   │   │   ├── AdminLTELogo.png
+│   │   │   ├── logo-xl.png
+│   │   │   ├── logo-xs.png
+│   │   │   ├── user1-128x128.jpg
+│   │   │   ├── user3-128x128.jpg
+│   │   │   ├── user4-128x128.jpg
+│   │   │   ├── user5-128x128.jpg
+│   │   │   ├── user6-128x128.jpg
+│   │   │   ├── user7-128x128.jpg
+│   │   │   └── user8-128x128.jpg
+│   │   ├── js
+│   │   │   ├── adminlte.js
+│   │   │   ├── adminlte.js.map
+│   │   │   ├── adminlte.min.js
+│   │   │   ├── adminlte.min.js.map
+│   │   │   ├── demo.js
+│   │   │   └── pages
+│   │   │       ├── dashboard.js
+│   │   │       ├── dashboard2.js
+│   │   │       └── dashboard3.js
+│   │   └── plugins
+│   │       ├── bootstrap
+│   │       │   └── js
+│   │       │       ├── bootstrap.bundle.js
+│   │       │       ├── bootstrap.bundle.js.map
+│   │       │       ├── bootstrap.bundle.min.js
+│   │       │       ├── bootstrap.bundle.min.js.map
+│   │       │       ├── bootstrap.js
+│   │       │       ├── bootstrap.js.map
+│   │       │       ├── bootstrap.min.js
+│   │       │       └── bootstrap.min.js.map
+│   │       ├── fontawesome-free
+│   │       │   ├── css
+│   │       │   │   ├── all.css
+│   │       │   │   ├── all.min.css
+│   │       │   │   ├── brands.css
+│   │       │   │   ├── brands.min.css
+│   │       │   │   ├── fontawesome.css
+│   │       │   │   ├── fontawesome.min.css
+│   │       │   │   ├── regular.css
+│   │       │   │   ├── regular.min.css
+│   │       │   │   ├── solid.css
+│   │       │   │   ├── solid.min.css
+│   │       │   │   ├── svg-with-js.css
+│   │       │   │   ├── svg-with-js.min.css
+│   │       │   │   ├── v4-shims.css
+│   │       │   │   └── v4-shims.min.css
+│   │       │   └── webfonts
+│   │       │       ├── fa-brands-400.eot
+│   │       │       ├── fa-brands-400.svg
+│   │       │       ├── fa-brands-400.ttf
+│   │       │       ├── fa-brands-400.woff
+│   │       │       ├── fa-brands-400.woff2
+│   │       │       ├── fa-regular-400.eot
+│   │       │       ├── fa-regular-400.svg
+│   │       │       ├── fa-regular-400.ttf
+│   │       │       ├── fa-regular-400.woff
+│   │       │       ├── fa-regular-400.woff2
+│   │       │       ├── fa-solid-900.eot
+│   │       │       ├── fa-solid-900.svg
+│   │       │       ├── fa-solid-900.ttf
+│   │       │       ├── fa-solid-900.woff
+│   │       │       └── fa-solid-900.woff2
+│   │       ├── jquery
+│   │       │   ├── core.js
+│   │       │   ├── jquery.js
+│   │       │   ├── jquery.min.js
+│   │       │   ├── jquery.min.map
+│   │       │   ├── jquery.slim.js
+│   │       │   ├── jquery.slim.min.js
+│   │       │   └── jquery.slim.min.map
+│   │       ├── overlayScrollbars
+│   │       │   ├── css
+│   │       │   │   ├── OverlayScrollbars.css
+│   │       │   │   └── OverlayScrollbars.min.css
+│   │       │   └── js
+│   │       │       ├── OverlayScrollbars.js
+│   │       │       ├── OverlayScrollbars.min.js
+│   │       │       ├── jquery.overlayScrollbars.js
+│   │       │       └── jquery.overlayScrollbars.min.js
+│   │       └── popper
+│   │           ├── esm
+│   │           │   ├── popper-utils.js
+│   │           │   ├── popper-utils.js.map
+│   │           │   ├── popper-utils.min.js
+│   │           │   ├── popper-utils.min.js.map
+│   │           │   ├── popper.js
+│   │           │   ├── popper.js.map
+│   │           │   ├── popper.min.js
+│   │           │   └── popper.min.js.map
+│   │           ├── popper-utils.js
+│   │           ├── popper-utils.js.map
+│   │           ├── popper-utils.min.js
+│   │           ├── popper-utils.min.js.map
+│   │           ├── popper.js
+│   │           ├── popper.js.map
+│   │           ├── popper.min.js
+│   │           ├── popper.min.js.map
+│   │           └── umd
+│   │               ├── popper-utils.js
+│   │               ├── popper-utils.js.map
+│   │               ├── popper-utils.min.js
+│   │               ├── popper-utils.min.js.map
+│   │               ├── popper.js
+│   │               ├── popper.js.flow
+│   │               ├── popper.js.map
+│   │               ├── popper.min.js
+│   │               ├── popper.min.js.map
+│   │               └── poppper.js.flow
+│   ├── browser-support.md
+│   ├── components
+│   │   ├── boxes.md
+│   │   ├── cards.md
+│   │   ├── control-sidebar.md
+│   │   ├── direct-chat.md
+│   │   ├── main-header.md
+│   │   ├── main-sidebar.md
+│   │   ├── miscellaneous.md
+│   │   ├── plugins.md
+│   │   ├── ribbons.md
+│   │   └── timeline.md
+│   ├── dependencies.md
+│   ├── faq.md
+│   ├── implementations.md
+│   ├── index.md
+│   ├── javascript
+│   │   ├── card-refresh.md
+│   │   ├── card-widget.md
+│   │   ├── control-sidebar.md
+│   │   ├── direct-chat.md
+│   │   ├── layout.md
+│   │   ├── push-menu.md
+│   │   ├── toasts.md
+│   │   ├── todo-list.md
+│   │   └── treeview.md
+│   ├── layout.md
+│   ├── license.md
+│   └── upgrade-guide.md
+├── index.html
+├── index2.html
+├── index3.html
+├── package-lock.json
+├── package.json
+├── pages
+│   ├── UI
+│   │   ├── buttons.html
+│   │   ├── general.html
+│   │   ├── icons.html
+│   │   ├── modals.html
+│   │   ├── navbar.html
+│   │   ├── ribbons.html
+│   │   ├── sliders.html
+│   │   └── timeline.html
+│   ├── calendar.html
+│   ├── charts
+│   │   ├── chartjs.html
+│   │   ├── flot.html
+│   │   └── inline.html
+│   ├── examples
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── blank.html
+│   │   ├── contacts.html
+│   │   ├── e-commerce.html
+│   │   ├── forgot-password.html
+│   │   ├── invoice-print.html
+│   │   ├── invoice.html
+│   │   ├── language-menu.html
+│   │   ├── legacy-user-menu.html
+│   │   ├── lockscreen.html
+│   │   ├── login.html
+│   │   ├── pace.html
+│   │   ├── profile.html
+│   │   ├── project-add.html
+│   │   ├── project-detail.html
+│   │   ├── project-edit.html
+│   │   ├── projects.html
+│   │   ├── recover-password.html
+│   │   └── register.html
+│   ├── forms
+│   │   ├── advanced.html
+│   │   ├── editors.html
+│   │   ├── general.html
+│   │   └── validation.html
+│   ├── gallery.html
+│   ├── layout
+│   │   ├── boxed.html
+│   │   ├── collapsed-sidebar.html
+│   │   ├── fixed-footer.html
+│   │   ├── fixed-sidebar.html
+│   │   ├── fixed-topnav.html
+│   │   ├── top-nav-sidebar.html
+│   │   └── top-nav.html
+│   ├── mailbox
+│   │   ├── compose.html
+│   │   ├── mailbox.html
+│   │   └── read-mail.html
+│   ├── tables
+│   │   ├── data.html
+│   │   ├── jsgrid.html
+│   │   └── simple.html
+│   └── widgets.html
+├── plugins
+│   ├── bootstrap
+│   │   └── js
+│   │       ├── bootstrap.bundle.js
+│   │       ├── bootstrap.bundle.js.map
+│   │       ├── bootstrap.bundle.min.js
+│   │       ├── bootstrap.bundle.min.js.map
+│   │       ├── bootstrap.js
+│   │       ├── bootstrap.js.map
+│   │       ├── bootstrap.min.js
+│   │       └── bootstrap.min.js.map
+│   ├── bootstrap-colorpicker
+│   │   ├── css
+│   │   │   ├── bootstrap-colorpicker.css
+│   │   │   ├── bootstrap-colorpicker.css.map
+│   │   │   ├── bootstrap-colorpicker.min.css
+│   │   │   └── bootstrap-colorpicker.min.css.map
+│   │   └── js
+│   │       ├── bootstrap-colorpicker.js
+│   │       ├── bootstrap-colorpicker.js.map
+│   │       ├── bootstrap-colorpicker.min.js
+│   │       └── bootstrap-colorpicker.min.js.map
+│   ├── bootstrap-slider
+│   │   ├── bootstrap-slider.js
+│   │   ├── bootstrap-slider.min.js
+│   │   └── css
+│   │       ├── bootstrap-slider.css
+│   │       └── bootstrap-slider.min.css
+│   ├── bootstrap-switch
+│   │   ├── css
+│   │   │   ├── bootstrap2
+│   │   │   │   ├── bootstrap-switch.css
+│   │   │   │   └── bootstrap-switch.min.css
+│   │   │   └── bootstrap3
+│   │   │       ├── bootstrap-switch.css
+│   │   │       └── bootstrap-switch.min.css
+│   │   └── js
+│   │       ├── bootstrap-switch.js
+│   │       └── bootstrap-switch.min.js
+│   ├── bootstrap4-duallistbox
+│   │   ├── bootstrap-duallistbox.css
+│   │   ├── bootstrap-duallistbox.min.css
+│   │   ├── jquery.bootstrap-duallistbox.js
+│   │   └── jquery.bootstrap-duallistbox.min.js
+│   ├── bs-custom-file-input
+│   │   ├── bs-custom-file-input.js
+│   │   ├── bs-custom-file-input.js.map
+│   │   ├── bs-custom-file-input.min.js
+│   │   └── bs-custom-file-input.min.js.map
+│   ├── chart.js
+│   │   ├── Chart.bundle.js
+│   │   ├── Chart.bundle.min.js
+│   │   ├── Chart.css
+│   │   ├── Chart.js
+│   │   ├── Chart.min.css
+│   │   └── Chart.min.js
+│   ├── datatables
+│   │   ├── jquery.dataTables.js
+│   │   └── jquery.dataTables.min.js
+│   ├── datatables-autofill
+│   │   ├── css
+│   │   │   ├── autoFill.bootstrap4.css
+│   │   │   └── autoFill.bootstrap4.min.css
+│   │   └── js
+│   │       ├── autoFill.bootstrap4.js
+│   │       ├── autoFill.bootstrap4.min.js
+│   │       ├── dataTables.autoFill.js
+│   │       └── dataTables.autoFill.min.js
+│   ├── datatables-bs4
+│   │   ├── css
+│   │   │   ├── dataTables.bootstrap4.css
+│   │   │   └── dataTables.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.bootstrap4.js
+│   │       └── dataTables.bootstrap4.min.js
+│   ├── datatables-buttons
+│   │   ├── css
+│   │   │   ├── buttons.bootstrap4.css
+│   │   │   └── buttons.bootstrap4.min.css
+│   │   └── js
+│   │       ├── buttons.bootstrap4.js
+│   │       ├── buttons.bootstrap4.min.js
+│   │       ├── buttons.colVis.js
+│   │       ├── buttons.colVis.min.js
+│   │       ├── buttons.flash.js
+│   │       ├── buttons.flash.min.js
+│   │       ├── buttons.html5.js
+│   │       ├── buttons.html5.min.js
+│   │       ├── buttons.print.js
+│   │       ├── buttons.print.min.js
+│   │       ├── dataTables.buttons.js
+│   │       └── dataTables.buttons.min.js
+│   ├── datatables-colreorder
+│   │   ├── css
+│   │   │   ├── colReorder.bootstrap4.css
+│   │   │   └── colReorder.bootstrap4.min.css
+│   │   └── js
+│   │       ├── colReorder.bootstrap4.js
+│   │       ├── colReorder.bootstrap4.min.js
+│   │       ├── dataTables.colReorder.js
+│   │       └── dataTables.colReorder.min.js
+│   ├── datatables-fixedcolumns
+│   │   ├── css
+│   │   │   ├── fixedColumns.bootstrap4.css
+│   │   │   └── fixedColumns.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.fixedColumns.js
+│   │       ├── dataTables.fixedColumns.min.js
+│   │       ├── fixedColumns.bootstrap4.js
+│   │       └── fixedColumns.bootstrap4.min.js
+│   ├── datatables-fixedheader
+│   │   ├── css
+│   │   │   ├── fixedHeader.bootstrap4.css
+│   │   │   └── fixedHeader.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.fixedHeader.js
+│   │       ├── dataTables.fixedHeader.min.js
+│   │       ├── fixedHeader.bootstrap4.js
+│   │       └── fixedHeader.bootstrap4.min.js
+│   ├── datatables-keytable
+│   │   ├── css
+│   │   │   ├── keyTable.bootstrap4.css
+│   │   │   └── keyTable.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.keyTable.js
+│   │       ├── dataTables.keyTable.min.js
+│   │       ├── keyTable.bootstrap4.js
+│   │       └── keyTable.bootstrap4.min.js
+│   ├── datatables-responsive
+│   │   ├── css
+│   │   │   ├── responsive.bootstrap4.css
+│   │   │   └── responsive.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.responsive.js
+│   │       ├── dataTables.responsive.min.js
+│   │       ├── responsive.bootstrap4.js
+│   │       └── responsive.bootstrap4.min.js
+│   ├── datatables-rowgroup
+│   │   ├── css
+│   │   │   ├── rowGroup.bootstrap4.css
+│   │   │   └── rowGroup.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.rowGroup.js
+│   │       ├── dataTables.rowGroup.min.js
+│   │       ├── rowGroup.bootstrap4.js
+│   │       └── rowGroup.bootstrap4.min.js
+│   ├── datatables-rowreorder
+│   │   ├── css
+│   │   │   ├── rowReorder.bootstrap4.css
+│   │   │   └── rowReorder.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.rowReorder.js
+│   │       ├── dataTables.rowReorder.min.js
+│   │       ├── rowReorder.bootstrap4.js
+│   │       └── rowReorder.bootstrap4.min.js
+│   ├── datatables-scroller
+│   │   ├── css
+│   │   │   ├── scroller.bootstrap4.css
+│   │   │   └── scroller.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.scroller.js
+│   │       ├── dataTables.scroller.min.js
+│   │       ├── scroller.bootstrap4.js
+│   │       └── scroller.bootstrap4.min.js
+│   ├── datatables-select
+│   │   ├── css
+│   │   │   ├── select.bootstrap4.css
+│   │   │   └── select.bootstrap4.min.css
+│   │   └── js
+│   │       ├── dataTables.select.js
+│   │       ├── dataTables.select.min.js
+│   │       ├── select.bootstrap4.js
+│   │       └── select.bootstrap4.min.js
+│   ├── daterangepicker
+│   │   ├── bower.json
+│   │   ├── daterangepicker.css
+│   │   ├── daterangepicker.js
+│   │   ├── drp.png
+│   │   ├── example
+│   │   │   ├── amd
+│   │   │   │   ├── index.html
+│   │   │   │   ├── main.js
+│   │   │   │   └── require.js
+│   │   │   └── browserify
+│   │   │       ├── README.md
+│   │   │       ├── bundle.js
+│   │   │       ├── index.html
+│   │   │       └── main.js
+│   │   ├── moment.min.js
+│   │   ├── package.js
+│   │   ├── website
+│   │   │   ├── index.html
+│   │   │   ├── website.css
+│   │   │   └── website.js
+│   │   ├── website.css
+│   │   └── website.js
+│   ├── ekko-lightbox
+│   │   ├── ekko-lightbox.css
+│   │   ├── ekko-lightbox.js
+│   │   ├── ekko-lightbox.js.map
+│   │   ├── ekko-lightbox.min.js
+│   │   └── ekko-lightbox.min.js.map
+│   ├── fastclick
+│   │   └── fastclick.js
+│   ├── filterizr
+│   │   ├── ActiveFilter.d.ts
+│   │   ├── BrowserWindow.d.ts
+│   │   ├── EventReceiver.d.ts
+│   │   ├── FilterContainer
+│   │   │   ├── FilterContainer.d.ts
+│   │   │   ├── StyledFilterContainer.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   └── styles.d.ts
+│   │   ├── FilterContainer.d.ts
+│   │   ├── FilterControls.d.ts
+│   │   ├── FilterItem
+│   │   │   ├── FilterItem.d.ts
+│   │   │   ├── StyledFilterItem.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   └── styles.d.ts
+│   │   ├── FilterItem.d.ts
+│   │   ├── FilterItems
+│   │   │   ├── FilterItems.d.ts
+│   │   │   ├── StyledFilterItems.d.ts
+│   │   │   └── index.d.ts
+│   │   ├── FilterItems.d.ts
+│   │   ├── Filterizr
+│   │   │   ├── Filterizr.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   └── installAsJQueryPlugin.d.ts
+│   │   ├── Filterizr.d.ts
+│   │   ├── FilterizrElement.d.ts
+│   │   ├── FilterizrOptions
+│   │   │   ├── FilterizrOptions.d.ts
+│   │   │   ├── defaultOptions.d.ts
+│   │   │   └── index.d.ts
+│   │   ├── Spinner
+│   │   │   ├── Spinner.d.ts
+│   │   │   ├── StyledSpinner.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   └── makeSpinner.d.ts
+│   │   ├── StyledFilterizrElement.d.ts
+│   │   ├── StyledFilterizrElements.d.ts
+│   │   ├── animate.d.ts
+│   │   ├── config
+│   │   │   ├── cssEasingValuesRegexp.d.ts
+│   │   │   ├── filterizrState.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   └── layout.d.ts
+│   │   ├── filterizr.min.js
+│   │   ├── getLayoutPositions.d.ts
+│   │   ├── index.d.ts
+│   │   ├── index.jquery.d.ts
+│   │   ├── installAsJQueryPlugin.d.ts
+│   │   ├── jquery.filterizr.min.js
+│   │   ├── layouts
+│   │   │   ├── Packer.d.ts
+│   │   │   ├── getHorizontalLayoutPositions.d.ts
+│   │   │   ├── getPackedLayoutPositions.d.ts
+│   │   │   ├── getSameHeightLayoutPositions.d.ts
+│   │   │   ├── getSameSizeLayoutPosition.d.ts
+│   │   │   ├── getSameWidthLayoutPositions.d.ts
+│   │   │   └── getVerticalLayoutPositions.d.ts
+│   │   ├── makeLayoutPositions
+│   │   │   ├── Packer.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   ├── makeHorizontalLayoutPositions.d.ts
+│   │   │   ├── makeLayoutPositions.d.ts
+│   │   │   ├── makePackedLayoutPositions.d.ts
+│   │   │   ├── makeSameHeightLayoutPositions.d.ts
+│   │   │   ├── makeSameSizeLayoutPosition.d.ts
+│   │   │   ├── makeSameWidthLayoutPositions.d.ts
+│   │   │   └── makeVerticalLayoutPositions.d.ts
+│   │   ├── types
+│   │   │   ├── index.d.ts
+│   │   │   └── interfaces
+│   │   │       ├── BaseOptions.d.ts
+│   │   │       ├── ContainerLayout.d.ts
+│   │   │       ├── Destructible.d.ts
+│   │   │       ├── Dictionary.d.ts
+│   │   │       ├── Dimensions.d.ts
+│   │   │       ├── Options.d.ts
+│   │   │       ├── Position.d.ts
+│   │   │       ├── RawOptions.d.ts
+│   │   │       ├── RawOptionsCallbacks.d.ts
+│   │   │       ├── Resizable.d.ts
+│   │   │       ├── SpinnerOptions.d.ts
+│   │   │       ├── Styleable.d.ts
+│   │   │       └── index.d.ts
+│   │   ├── utils
+│   │   │   ├── allStringsOfArray1InArray2.d.ts
+│   │   │   ├── checkOptionForErrors.d.ts
+│   │   │   ├── debounce.d.ts
+│   │   │   ├── filterItemArraysHaveSameSorting.d.ts
+│   │   │   ├── getDataAttributesOfHTMLNode.d.ts
+│   │   │   ├── getHTMLElement.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   ├── intersection.d.ts
+│   │   │   ├── merge.d.ts
+│   │   │   ├── noop.d.ts
+│   │   │   ├── setStyles.d.ts
+│   │   │   ├── shuffle.d.ts
+│   │   │   └── sortBy.d.ts
+│   │   ├── utils.d.ts
+│   │   └── vanilla.filterizr.min.js
+│   ├── flag-icon-css
+│   │   ├── css
+│   │   │   ├── flag-icon.css
+│   │   │   └── flag-icon.min.css
+│   │   └── flags
+│   │       ├── 1x1
+│   │       │   ├── ad.svg
+│   │       │   ├── ae.svg
+│   │       │   ├── af.svg
+│   │       │   ├── ag.svg
+│   │       │   ├── ai.svg
+│   │       │   ├── al.svg
+│   │       │   ├── am.svg
+│   │       │   ├── ao.svg
+│   │       │   ├── aq.svg
+│   │       │   ├── ar.svg
+│   │       │   ├── as.svg
+│   │       │   ├── at.svg
+│   │       │   ├── au.svg
+│   │       │   ├── aw.svg
+│   │       │   ├── ax.svg
+│   │       │   ├── az.svg
+│   │       │   ├── ba.svg
+│   │       │   ├── bb.svg
+│   │       │   ├── bd.svg
+│   │       │   ├── be.svg
+│   │       │   ├── bf.svg
+│   │       │   ├── bg.svg
+│   │       │   ├── bh.svg
+│   │       │   ├── bi.svg
+│   │       │   ├── bj.svg
+│   │       │   ├── bl.svg
+│   │       │   ├── bm.svg
+│   │       │   ├── bn.svg
+│   │       │   ├── bo.svg
+│   │       │   ├── bq.svg
+│   │       │   ├── br.svg
+│   │       │   ├── bs.svg
+│   │       │   ├── bt.svg
+│   │       │   ├── bv.svg
+│   │       │   ├── bw.svg
+│   │       │   ├── by.svg
+│   │       │   ├── bz.svg
+│   │       │   ├── ca.svg
+│   │       │   ├── cc.svg
+│   │       │   ├── cd.svg
+│   │       │   ├── cf.svg
+│   │       │   ├── cg.svg
+│   │       │   ├── ch.svg
+│   │       │   ├── ci.svg
+│   │       │   ├── ck.svg
+│   │       │   ├── cl.svg
+│   │       │   ├── cm.svg
+│   │       │   ├── cn.svg
+│   │       │   ├── co.svg
+│   │       │   ├── cr.svg
+│   │       │   ├── cu.svg
+│   │       │   ├── cv.svg
+│   │       │   ├── cw.svg
+│   │       │   ├── cx.svg
+│   │       │   ├── cy.svg
+│   │       │   ├── cz.svg
+│   │       │   ├── de.svg
+│   │       │   ├── dj.svg
+│   │       │   ├── dk.svg
+│   │       │   ├── dm.svg
+│   │       │   ├── do.svg
+│   │       │   ├── dz.svg
+│   │       │   ├── ec.svg
+│   │       │   ├── ee.svg
+│   │       │   ├── eg.svg
+│   │       │   ├── eh.svg
+│   │       │   ├── er.svg
+│   │       │   ├── es-ca.svg
+│   │       │   ├── es.svg
+│   │       │   ├── et.svg
+│   │       │   ├── eu.svg
+│   │       │   ├── fi.svg
+│   │       │   ├── fj.svg
+│   │       │   ├── fk.svg
+│   │       │   ├── fm.svg
+│   │       │   ├── fo.svg
+│   │       │   ├── fr.svg
+│   │       │   ├── ga.svg
+│   │       │   ├── gb-eng.svg
+│   │       │   ├── gb-nir.svg
+│   │       │   ├── gb-sct.svg
+│   │       │   ├── gb-wls.svg
+│   │       │   ├── gb.svg
+│   │       │   ├── gd.svg
+│   │       │   ├── ge.svg
+│   │       │   ├── gf.svg
+│   │       │   ├── gg.svg
+│   │       │   ├── gh.svg
+│   │       │   ├── gi.svg
+│   │       │   ├── gl.svg
+│   │       │   ├── gm.svg
+│   │       │   ├── gn.svg
+│   │       │   ├── gp.svg
+│   │       │   ├── gq.svg
+│   │       │   ├── gr.svg
+│   │       │   ├── gs.svg
+│   │       │   ├── gt.svg
+│   │       │   ├── gu.svg
+│   │       │   ├── gw.svg
+│   │       │   ├── gy.svg
+│   │       │   ├── hk.svg
+│   │       │   ├── hm.svg
+│   │       │   ├── hn.svg
+│   │       │   ├── hr.svg
+│   │       │   ├── ht.svg
+│   │       │   ├── hu.svg
+│   │       │   ├── id.svg
+│   │       │   ├── ie.svg
+│   │       │   ├── il.svg
+│   │       │   ├── im.svg
+│   │       │   ├── in.svg
+│   │       │   ├── io.svg
+│   │       │   ├── iq.svg
+│   │       │   ├── ir.svg
+│   │       │   ├── is.svg
+│   │       │   ├── it.svg
+│   │       │   ├── je.svg
+│   │       │   ├── jm.svg
+│   │       │   ├── jo.svg
+│   │       │   ├── jp.svg
+│   │       │   ├── ke.svg
+│   │       │   ├── kg.svg
+│   │       │   ├── kh.svg
+│   │       │   ├── ki.svg
+│   │       │   ├── km.svg
+│   │       │   ├── kn.svg
+│   │       │   ├── kp.svg
+│   │       │   ├── kr.svg
+│   │       │   ├── kw.svg
+│   │       │   ├── ky.svg
+│   │       │   ├── kz.svg
+│   │       │   ├── la.svg
+│   │       │   ├── lb.svg
+│   │       │   ├── lc.svg
+│   │       │   ├── li.svg
+│   │       │   ├── lk.svg
+│   │       │   ├── lr.svg
+│   │       │   ├── ls.svg
+│   │       │   ├── lt.svg
+│   │       │   ├── lu.svg
+│   │       │   ├── lv.svg
+│   │       │   ├── ly.svg
+│   │       │   ├── ma.svg
+│   │       │   ├── mc.svg
+│   │       │   ├── md.svg
+│   │       │   ├── me.svg
+│   │       │   ├── mf.svg
+│   │       │   ├── mg.svg
+│   │       │   ├── mh.svg
+│   │       │   ├── mk.svg
+│   │       │   ├── ml.svg
+│   │       │   ├── mm.svg
+│   │       │   ├── mn.svg
+│   │       │   ├── mo.svg
+│   │       │   ├── mp.svg
+│   │       │   ├── mq.svg
+│   │       │   ├── mr.svg
+│   │       │   ├── ms.svg
+│   │       │   ├── mt.svg
+│   │       │   ├── mu.svg
+│   │       │   ├── mv.svg
+│   │       │   ├── mw.svg
+│   │       │   ├── mx.svg
+│   │       │   ├── my.svg
+│   │       │   ├── mz.svg
+│   │       │   ├── na.svg
+│   │       │   ├── nc.svg
+│   │       │   ├── ne.svg
+│   │       │   ├── nf.svg
+│   │       │   ├── ng.svg
+│   │       │   ├── ni.svg
+│   │       │   ├── nl.svg
+│   │       │   ├── no.svg
+│   │       │   ├── np.svg
+│   │       │   ├── nr.svg
+│   │       │   ├── nu.svg
+│   │       │   ├── nz.svg
+│   │       │   ├── om.svg
+│   │       │   ├── pa.svg
+│   │       │   ├── pe.svg
+│   │       │   ├── pf.svg
+│   │       │   ├── pg.svg
+│   │       │   ├── ph.svg
+│   │       │   ├── pk.svg
+│   │       │   ├── pl.svg
+│   │       │   ├── pm.svg
+│   │       │   ├── pn.svg
+│   │       │   ├── pr.svg
+│   │       │   ├── ps.svg
+│   │       │   ├── pt.svg
+│   │       │   ├── pw.svg
+│   │       │   ├── py.svg
+│   │       │   ├── qa.svg
+│   │       │   ├── re.svg
+│   │       │   ├── ro.svg
+│   │       │   ├── rs.svg
+│   │       │   ├── ru.svg
+│   │       │   ├── rw.svg
+│   │       │   ├── sa.svg
+│   │       │   ├── sb.svg
+│   │       │   ├── sc.svg
+│   │       │   ├── sd.svg
+│   │       │   ├── se.svg
+│   │       │   ├── sg.svg
+│   │       │   ├── sh.svg
+│   │       │   ├── si.svg
+│   │       │   ├── sj.svg
+│   │       │   ├── sk.svg
+│   │       │   ├── sl.svg
+│   │       │   ├── sm.svg
+│   │       │   ├── sn.svg
+│   │       │   ├── so.svg
+│   │       │   ├── sr.svg
+│   │       │   ├── ss.svg
+│   │       │   ├── st.svg
+│   │       │   ├── sv.svg
+│   │       │   ├── sx.svg
+│   │       │   ├── sy.svg
+│   │       │   ├── sz.svg
+│   │       │   ├── tc.svg
+│   │       │   ├── td.svg
+│   │       │   ├── tf.svg
+│   │       │   ├── tg.svg
+│   │       │   ├── th.svg
+│   │       │   ├── tj.svg
+│   │       │   ├── tk.svg
+│   │       │   ├── tl.svg
+│   │       │   ├── tm.svg
+│   │       │   ├── tn.svg
+│   │       │   ├── to.svg
+│   │       │   ├── tr.svg
+│   │       │   ├── tt.svg
+│   │       │   ├── tv.svg
+│   │       │   ├── tw.svg
+│   │       │   ├── tz.svg
+│   │       │   ├── ua.svg
+│   │       │   ├── ug.svg
+│   │       │   ├── um.svg
+│   │       │   ├── un.svg
+│   │       │   ├── us.svg
+│   │       │   ├── uy.svg
+│   │       │   ├── uz.svg
+│   │       │   ├── va.svg
+│   │       │   ├── vc.svg
+│   │       │   ├── ve.svg
+│   │       │   ├── vg.svg
+│   │       │   ├── vi.svg
+│   │       │   ├── vn.svg
+│   │       │   ├── vu.svg
+│   │       │   ├── wf.svg
+│   │       │   ├── ws.svg
+│   │       │   ├── xk.svg
+│   │       │   ├── ye.svg
+│   │       │   ├── yt.svg
+│   │       │   ├── za.svg
+│   │       │   ├── zm.svg
+│   │       │   └── zw.svg
+│   │       └── 4x3
+│   │           ├── ad.svg
+│   │           ├── ae.svg
+│   │           ├── af.svg
+│   │           ├── ag.svg
+│   │           ├── ai.svg
+│   │           ├── al.svg
+│   │           ├── am.svg
+│   │           ├── ao.svg
+│   │           ├── aq.svg
+│   │           ├── ar.svg
+│   │           ├── as.svg
+│   │           ├── at.svg
+│   │           ├── au.svg
+│   │           ├── aw.svg
+│   │           ├── ax.svg
+│   │           ├── az.svg
+│   │           ├── ba.svg
+│   │           ├── bb.svg
+│   │           ├── bd.svg
+│   │           ├── be.svg
+│   │           ├── bf.svg
+│   │           ├── bg.svg
+│   │           ├── bh.svg
+│   │           ├── bi.svg
+│   │           ├── bj.svg
+│   │           ├── bl.svg
+│   │           ├── bm.svg
+│   │           ├── bn.svg
+│   │           ├── bo.svg
+│   │           ├── bq.svg
+│   │           ├── br.svg
+│   │           ├── bs.svg
+│   │           ├── bt.svg
+│   │           ├── bv.svg
+│   │           ├── bw.svg
+│   │           ├── by.svg
+│   │           ├── bz.svg
+│   │           ├── ca.svg
+│   │           ├── cc.svg
+│   │           ├── cd.svg
+│   │           ├── cf.svg
+│   │           ├── cg.svg
+│   │           ├── ch.svg
+│   │           ├── ci.svg
+│   │           ├── ck.svg
+│   │           ├── cl.svg
+│   │           ├── cm.svg
+│   │           ├── cn.svg
+│   │           ├── co.svg
+│   │           ├── cr.svg
+│   │           ├── cu.svg
+│   │           ├── cv.svg
+│   │           ├── cw.svg
+│   │           ├── cx.svg
+│   │           ├── cy.svg
+│   │           ├── cz.svg
+│   │           ├── de.svg
+│   │           ├── dj.svg
+│   │           ├── dk.svg
+│   │           ├── dm.svg
+│   │           ├── do.svg
+│   │           ├── dz.svg
+│   │           ├── ec.svg
+│   │           ├── ee.svg
+│   │           ├── eg.svg
+│   │           ├── eh.svg
+│   │           ├── er.svg
+│   │           ├── es-ca.svg
+│   │           ├── es.svg
+│   │           ├── et.svg
+│   │           ├── eu.svg
+│   │           ├── fi.svg
+│   │           ├── fj.svg
+│   │           ├── fk.svg
+│   │           ├── fm.svg
+│   │           ├── fo.svg
+│   │           ├── fr.svg
+│   │           ├── ga.svg
+│   │           ├── gb-eng.svg
+│   │           ├── gb-nir.svg
+│   │           ├── gb-sct.svg
+│   │           ├── gb-wls.svg
+│   │           ├── gb.svg
+│   │           ├── gd.svg
+│   │           ├── ge.svg
+│   │           ├── gf.svg
+│   │           ├── gg.svg
+│   │           ├── gh.svg
+│   │           ├── gi.svg
+│   │           ├── gl.svg
+│   │           ├── gm.svg
+│   │           ├── gn.svg
+│   │           ├── gp.svg
+│   │           ├── gq.svg
+│   │           ├── gr.svg
+│   │           ├── gs.svg
+│   │           ├── gt.svg
+│   │           ├── gu.svg
+│   │           ├── gw.svg
+│   │           ├── gy.svg
+│   │           ├── hk.svg
+│   │           ├── hm.svg
+│   │           ├── hn.svg
+│   │           ├── hr.svg
+│   │           ├── ht.svg
+│   │           ├── hu.svg
+│   │           ├── id.svg
+│   │           ├── ie.svg
+│   │           ├── il.svg
+│   │           ├── im.svg
+│   │           ├── in.svg
+│   │           ├── io.svg
+│   │           ├── iq.svg
+│   │           ├── ir.svg
+│   │           ├── is.svg
+│   │           ├── it.svg
+│   │           ├── je.svg
+│   │           ├── jm.svg
+│   │           ├── jo.svg
+│   │           ├── jp.svg
+│   │           ├── ke.svg
+│   │           ├── kg.svg
+│   │           ├── kh.svg
+│   │           ├── ki.svg
+│   │           ├── km.svg
+│   │           ├── kn.svg
+│   │           ├── kp.svg
+│   │           ├── kr.svg
+│   │           ├── kw.svg
+│   │           ├── ky.svg
+│   │           ├── kz.svg
+│   │           ├── la.svg
+│   │           ├── lb.svg
+│   │           ├── lc.svg
+│   │           ├── li.svg
+│   │           ├── lk.svg
+│   │           ├── lr.svg
+│   │           ├── ls.svg
+│   │           ├── lt.svg
+│   │           ├── lu.svg
+│   │           ├── lv.svg
+│   │           ├── ly.svg
+│   │           ├── ma.svg
+│   │           ├── mc.svg
+│   │           ├── md.svg
+│   │           ├── me.svg
+│   │           ├── mf.svg
+│   │           ├── mg.svg
+│   │           ├── mh.svg
+│   │           ├── mk.svg
+│   │           ├── ml.svg
+│   │           ├── mm.svg
+│   │           ├── mn.svg
+│   │           ├── mo.svg
+│   │           ├── mp.svg
+│   │           ├── mq.svg
+│   │           ├── mr.svg
+│   │           ├── ms.svg
+│   │           ├── mt.svg
+│   │           ├── mu.svg
+│   │           ├── mv.svg
+│   │           ├── mw.svg
+│   │           ├── mx.svg
+│   │           ├── my.svg
+│   │           ├── mz.svg
+│   │           ├── na.svg
+│   │           ├── nc.svg
+│   │           ├── ne.svg
+│   │           ├── nf.svg
+│   │           ├── ng.svg
+│   │           ├── ni.svg
+│   │           ├── nl.svg
+│   │           ├── no.svg
+│   │           ├── np.svg
+│   │           ├── nr.svg
+│   │           ├── nu.svg
+│   │           ├── nz.svg
+│   │           ├── om.svg
+│   │           ├── pa.svg
+│   │           ├── pe.svg
+│   │           ├── pf.svg
+│   │           ├── pg.svg
+│   │           ├── ph.svg
+│   │           ├── pk.svg
+│   │           ├── pl.svg
+│   │           ├── pm.svg
+│   │           ├── pn.svg
+│   │           ├── pr.svg
+│   │           ├── ps.svg
+│   │           ├── pt.svg
+│   │           ├── pw.svg
+│   │           ├── py.svg
+│   │           ├── qa.svg
+│   │           ├── re.svg
+│   │           ├── ro.svg
+│   │           ├── rs.svg
+│   │           ├── ru.svg
+│   │           ├── rw.svg
+│   │           ├── sa.svg
+│   │           ├── sb.svg
+│   │           ├── sc.svg
+│   │           ├── sd.svg
+│   │           ├── se.svg
+│   │           ├── sg.svg
+│   │           ├── sh.svg
+│   │           ├── si.svg
+│   │           ├── sj.svg
+│   │           ├── sk.svg
+│   │           ├── sl.svg
+│   │           ├── sm.svg
+│   │           ├── sn.svg
+│   │           ├── so.svg
+│   │           ├── sr.svg
+│   │           ├── ss.svg
+│   │           ├── st.svg
+│   │           ├── sv.svg
+│   │           ├── sx.svg
+│   │           ├── sy.svg
+│   │           ├── sz.svg
+│   │           ├── tc.svg
+│   │           ├── td.svg
+│   │           ├── tf.svg
+│   │           ├── tg.svg
+│   │           ├── th.svg
+│   │           ├── tj.svg
+│   │           ├── tk.svg
+│   │           ├── tl.svg
+│   │           ├── tm.svg
+│   │           ├── tn.svg
+│   │           ├── to.svg
+│   │           ├── tr.svg
+│   │           ├── tt.svg
+│   │           ├── tv.svg
+│   │           ├── tw.svg
+│   │           ├── tz.svg
+│   │           ├── ua.svg
+│   │           ├── ug.svg
+│   │           ├── um.svg
+│   │           ├── un.svg
+│   │           ├── us.svg
+│   │           ├── uy.svg
+│   │           ├── uz.svg
+│   │           ├── va.svg
+│   │           ├── vc.svg
+│   │           ├── ve.svg
+│   │           ├── vg.svg
+│   │           ├── vi.svg
+│   │           ├── vn.svg
+│   │           ├── vu.svg
+│   │           ├── wf.svg
+│   │           ├── ws.svg
+│   │           ├── xk.svg
+│   │           ├── ye.svg
+│   │           ├── yt.svg
+│   │           ├── za.svg
+│   │           ├── zm.svg
+│   │           └── zw.svg
+│   ├── flot
+│   │   └── jquery.flot.js
+│   ├── flot-old
+│   │   ├── excanvas.js
+│   │   ├── excanvas.min.js
+│   │   ├── jquery.colorhelpers.js
+│   │   ├── jquery.colorhelpers.min.js
+│   │   ├── jquery.flot.canvas.js
+│   │   ├── jquery.flot.canvas.min.js
+│   │   ├── jquery.flot.categories.js
+│   │   ├── jquery.flot.categories.min.js
+│   │   ├── jquery.flot.crosshair.js
+│   │   ├── jquery.flot.crosshair.min.js
+│   │   ├── jquery.flot.errorbars.js
+│   │   ├── jquery.flot.errorbars.min.js
+│   │   ├── jquery.flot.fillbetween.js
+│   │   ├── jquery.flot.fillbetween.min.js
+│   │   ├── jquery.flot.image.js
+│   │   ├── jquery.flot.image.min.js
+│   │   ├── jquery.flot.js
+│   │   ├── jquery.flot.min.js
+│   │   ├── jquery.flot.navigate.js
+│   │   ├── jquery.flot.navigate.min.js
+│   │   ├── jquery.flot.pie.js
+│   │   ├── jquery.flot.pie.min.js
+│   │   ├── jquery.flot.resize.js
+│   │   ├── jquery.flot.resize.min.js
+│   │   ├── jquery.flot.selection.js
+│   │   ├── jquery.flot.selection.min.js
+│   │   ├── jquery.flot.stack.js
+│   │   ├── jquery.flot.stack.min.js
+│   │   ├── jquery.flot.symbol.js
+│   │   ├── jquery.flot.symbol.min.js
+│   │   ├── jquery.flot.threshold.js
+│   │   ├── jquery.flot.threshold.min.js
+│   │   ├── jquery.flot.time.js
+│   │   └── jquery.flot.time.min.js
+│   ├── fontawesome-free
+│   │   ├── css
+│   │   │   ├── all.css
+│   │   │   ├── all.min.css
+│   │   │   ├── brands.css
+│   │   │   ├── brands.min.css
+│   │   │   ├── fontawesome.css
+│   │   │   ├── fontawesome.min.css
+│   │   │   ├── regular.css
+│   │   │   ├── regular.min.css
+│   │   │   ├── solid.css
+│   │   │   ├── solid.min.css
+│   │   │   ├── svg-with-js.css
+│   │   │   ├── svg-with-js.min.css
+│   │   │   ├── v4-shims.css
+│   │   │   └── v4-shims.min.css
+│   │   └── webfonts
+│   │       ├── fa-brands-400.eot
+│   │       ├── fa-brands-400.svg
+│   │       ├── fa-brands-400.ttf
+│   │       ├── fa-brands-400.woff
+│   │       ├── fa-brands-400.woff2
+│   │       ├── fa-regular-400.eot
+│   │       ├── fa-regular-400.svg
+│   │       ├── fa-regular-400.ttf
+│   │       ├── fa-regular-400.woff
+│   │       ├── fa-regular-400.woff2
+│   │       ├── fa-solid-900.eot
+│   │       ├── fa-solid-900.svg
+│   │       ├── fa-solid-900.ttf
+│   │       ├── fa-solid-900.woff
+│   │       └── fa-solid-900.woff2
+│   ├── fullcalendar
+│   │   ├── LICENSE.txt
+│   │   ├── locales
+│   │   │   ├── af.js
+│   │   │   ├── ar-dz.js
+│   │   │   ├── ar-kw.js
+│   │   │   ├── ar-ly.js
+│   │   │   ├── ar-ma.js
+│   │   │   ├── ar-sa.js
+│   │   │   ├── ar-tn.js
+│   │   │   ├── ar.js
+│   │   │   ├── az.js
+│   │   │   ├── bg.js
+│   │   │   ├── bs.js
+│   │   │   ├── ca.js
+│   │   │   ├── cs.js
+│   │   │   ├── da.js
+│   │   │   ├── de.js
+│   │   │   ├── el.js
+│   │   │   ├── en-au.js
+│   │   │   ├── en-gb.js
+│   │   │   ├── en-nz.js
+│   │   │   ├── es-us.js
+│   │   │   ├── es.js
+│   │   │   ├── et.js
+│   │   │   ├── eu.js
+│   │   │   ├── fa.js
+│   │   │   ├── fi.js
+│   │   │   ├── fr-ca.js
+│   │   │   ├── fr-ch.js
+│   │   │   ├── fr.js
+│   │   │   ├── gl.js
+│   │   │   ├── he.js
+│   │   │   ├── hi.js
+│   │   │   ├── hr.js
+│   │   │   ├── hu.js
+│   │   │   ├── id.js
+│   │   │   ├── is.js
+│   │   │   ├── it.js
+│   │   │   ├── ja.js
+│   │   │   ├── ka.js
+│   │   │   ├── kk.js
+│   │   │   ├── ko.js
+│   │   │   ├── lb.js
+│   │   │   ├── lt.js
+│   │   │   ├── lv.js
+│   │   │   ├── mk.js
+│   │   │   ├── ms.js
+│   │   │   ├── nb.js
+│   │   │   ├── nl.js
+│   │   │   ├── nn.js
+│   │   │   ├── pl.js
+│   │   │   ├── pt-br.js
+│   │   │   ├── pt.js
+│   │   │   ├── ro.js
+│   │   │   ├── ru.js
+│   │   │   ├── sk.js
+│   │   │   ├── sl.js
+│   │   │   ├── sq.js
+│   │   │   ├── sr-cyrl.js
+│   │   │   ├── sr.js
+│   │   │   ├── sv.js
+│   │   │   ├── th.js
+│   │   │   ├── tr.js
+│   │   │   ├── ug.js
+│   │   │   ├── uk.js
+│   │   │   ├── uz.js
+│   │   │   ├── vi.js
+│   │   │   ├── zh-cn.js
+│   │   │   └── zh-tw.js
+│   │   ├── locales-all.js
+│   │   ├── locales-all.min.js
+│   │   ├── main.css
+│   │   ├── main.d.ts
+│   │   ├── main.esm.js
+│   │   ├── main.js
+│   │   ├── main.js.map
+│   │   ├── main.min.css
+│   │   └── main.min.js
+│   ├── fullcalendar-bootstrap
+│   │   ├── LICENSE.txt
+│   │   ├── main.css
+│   │   ├── main.d.ts
+│   │   ├── main.esm.js
+│   │   ├── main.js
+│   │   ├── main.js.map
+│   │   ├── main.min.css
+│   │   └── main.min.js
+│   ├── fullcalendar-daygrid
+│   │   ├── LICENSE.txt
+│   │   ├── main.css
+│   │   ├── main.d.ts
+│   │   ├── main.esm.js
+│   │   ├── main.js
+│   │   ├── main.js.map
+│   │   ├── main.min.css
+│   │   └── main.min.js
+│   ├── fullcalendar-interaction
+│   │   ├── LICENSE.txt
+│   │   ├── main.d.ts
+│   │   ├── main.esm.js
+│   │   ├── main.js
+│   │   ├── main.js.map
+│   │   └── main.min.js
+│   ├── fullcalendar-timegrid
+│   │   ├── LICENSE.txt
+│   │   ├── main.css
+│   │   ├── main.d.ts
+│   │   ├── main.esm.js
+│   │   ├── main.js
+│   │   ├── main.js.map
+│   │   ├── main.min.css
+│   │   └── main.min.js
+│   ├── icheck-bootstrap
+│   │   ├── LICENSE
+│   │   ├── icheck-bootstrap.css
+│   │   └── icheck-bootstrap.min.css
+│   ├── inputmask
+│   │   ├── bindings
+│   │   │   └── inputmask.binding.js
+│   │   ├── inputmask
+│   │   │   ├── bindings
+│   │   │   │   └── inputmask.binding.js
+│   │   │   ├── dependencyLibs
+│   │   │   │   ├── inputmask.dependencyLib.jqlite.js
+│   │   │   │   ├── inputmask.dependencyLib.jquery.js
+│   │   │   │   └── inputmask.dependencyLib.js
+│   │   │   ├── global
+│   │   │   │   └── window.js
+│   │   │   ├── inputmask.date.extensions.js
+│   │   │   ├── inputmask.extensions.js
+│   │   │   ├── inputmask.js
+│   │   │   ├── inputmask.numeric.extensions.js
+│   │   │   └── jquery.inputmask.js
+│   │   ├── inputmask.js
+│   │   ├── inputmask.min.js
+│   │   ├── jquery.inputmask.bundle.js
+│   │   ├── jquery.inputmask.js
+│   │   ├── jquery.inputmask.min.js
+│   │   └── min
+│   │       ├── inputmask
+│   │       │   ├── bindings
+│   │       │   │   └── inputmask.binding.min.js
+│   │       │   ├── dependencyLibs
+│   │       │   │   ├── inputmask.dependencyLib.jqlite.min.js
+│   │       │   │   ├── inputmask.dependencyLib.jquery.min.js
+│   │       │   │   └── inputmask.dependencyLib.min.js
+│   │       │   ├── global
+│   │       │   │   └── window.min.js
+│   │       │   ├── inputmask.date.extensions.min.js
+│   │       │   ├── inputmask.extensions.min.js
+│   │       │   ├── inputmask.min.js
+│   │       │   ├── inputmask.numeric.extensions.min.js
+│   │       │   └── jquery.inputmask.min.js
+│   │       └── jquery.inputmask.bundle.min.js
+│   ├── ion-rangeslider
+│   │   ├── css
+│   │   │   ├── ion.rangeSlider.css
+│   │   │   └── ion.rangeSlider.min.css
+│   │   ├── js
+│   │   │   ├── ion.rangeSlider.js
+│   │   │   └── ion.rangeSlider.min.js
+│   │   └── less
+│   │       ├── _base.less
+│   │       ├── _mixins.less
+│   │       ├── irs.less
+│   │       └── skins
+│   │           ├── big.less
+│   │           ├── flat.less
+│   │           ├── modern.less
+│   │           ├── round.less
+│   │           ├── sharp.less
+│   │           └── square.less
+│   ├── jquery
+│   │   ├── core.js
+│   │   ├── jquery.js
+│   │   ├── jquery.min.js
+│   │   ├── jquery.min.map
+│   │   ├── jquery.slim.js
+│   │   ├── jquery.slim.min.js
+│   │   └── jquery.slim.min.map
+│   ├── jquery-knob
+│   │   └── jquery.knob.min.js
+│   ├── jquery-mapael
+│   │   ├── jquery.mapael.js
+│   │   ├── jquery.mapael.min.js
+│   │   └── maps
+│   │       ├── README.txt
+│   │       ├── france_departments.js
+│   │       ├── france_departments.min.js
+│   │       ├── usa_states.js
+│   │       ├── usa_states.min.js
+│   │       ├── world_countries.js
+│   │       ├── world_countries.min.js
+│   │       ├── world_countries_mercator.js
+│   │       ├── world_countries_mercator.min.js
+│   │       ├── world_countries_miller.js
+│   │       └── world_countries_miller.min.js
+│   ├── jquery-mousewheel
+│   │   ├── LICENSE.txt
+│   │   └── jquery.mousewheel.js
+│   ├── jquery-ui
+│   │   ├── AUTHORS.txt
+│   │   ├── LICENSE.txt
+│   │   ├── external
+│   │   │   └── jquery
+│   │   │       └── jquery.js
+│   │   ├── images
+│   │   │   ├── ui-icons_444444_256x240.png
+│   │   │   ├── ui-icons_555555_256x240.png
+│   │   │   ├── ui-icons_777620_256x240.png
+│   │   │   ├── ui-icons_777777_256x240.png
+│   │   │   ├── ui-icons_cc0000_256x240.png
+│   │   │   └── ui-icons_ffffff_256x240.png
+│   │   ├── jquery-ui.css
+│   │   ├── jquery-ui.js
+│   │   ├── jquery-ui.min.css
+│   │   ├── jquery-ui.min.js
+│   │   ├── jquery-ui.structure.css
+│   │   ├── jquery-ui.structure.min.css
+│   │   ├── jquery-ui.theme.css
+│   │   └── jquery-ui.theme.min.css
+│   ├── jquery-validation
+│   │   ├── additional-methods.js
+│   │   ├── additional-methods.min.js
+│   │   ├── jquery.validate.js
+│   │   ├── jquery.validate.min.js
+│   │   └── localization
+│   │       ├── messages_ar.js
+│   │       ├── messages_ar.min.js
+│   │       ├── messages_az.js
+│   │       ├── messages_az.min.js
+│   │       ├── messages_bg.js
+│   │       ├── messages_bg.min.js
+│   │       ├── messages_bn_BD.js
+│   │       ├── messages_bn_BD.min.js
+│   │       ├── messages_ca.js
+│   │       ├── messages_ca.min.js
+│   │       ├── messages_cs.js
+│   │       ├── messages_cs.min.js
+│   │       ├── messages_da.js
+│   │       ├── messages_da.min.js
+│   │       ├── messages_de.js
+│   │       ├── messages_de.min.js
+│   │       ├── messages_el.js
+│   │       ├── messages_el.min.js
+│   │       ├── messages_es.js
+│   │       ├── messages_es.min.js
+│   │       ├── messages_es_AR.js
+│   │       ├── messages_es_AR.min.js
+│   │       ├── messages_es_PE.js
+│   │       ├── messages_es_PE.min.js
+│   │       ├── messages_et.js
+│   │       ├── messages_et.min.js
+│   │       ├── messages_eu.js
+│   │       ├── messages_eu.min.js
+│   │       ├── messages_fa.js
+│   │       ├── messages_fa.min.js
+│   │       ├── messages_fi.js
+│   │       ├── messages_fi.min.js
+│   │       ├── messages_fr.js
+│   │       ├── messages_fr.min.js
+│   │       ├── messages_ge.js
+│   │       ├── messages_ge.min.js
+│   │       ├── messages_gl.js
+│   │       ├── messages_gl.min.js
+│   │       ├── messages_he.js
+│   │       ├── messages_he.min.js
+│   │       ├── messages_hr.js
+│   │       ├── messages_hr.min.js
+│   │       ├── messages_hu.js
+│   │       ├── messages_hu.min.js
+│   │       ├── messages_hy_AM.js
+│   │       ├── messages_hy_AM.min.js
+│   │       ├── messages_id.js
+│   │       ├── messages_id.min.js
+│   │       ├── messages_is.js
+│   │       ├── messages_is.min.js
+│   │       ├── messages_it.js
+│   │       ├── messages_it.min.js
+│   │       ├── messages_ja.js
+│   │       ├── messages_ja.min.js
+│   │       ├── messages_ka.js
+│   │       ├── messages_ka.min.js
+│   │       ├── messages_kk.js
+│   │       ├── messages_kk.min.js
+│   │       ├── messages_ko.js
+│   │       ├── messages_ko.min.js
+│   │       ├── messages_lt.js
+│   │       ├── messages_lt.min.js
+│   │       ├── messages_lv.js
+│   │       ├── messages_lv.min.js
+│   │       ├── messages_mk.js
+│   │       ├── messages_mk.min.js
+│   │       ├── messages_my.js
+│   │       ├── messages_my.min.js
+│   │       ├── messages_nl.js
+│   │       ├── messages_nl.min.js
+│   │       ├── messages_no.js
+│   │       ├── messages_no.min.js
+│   │       ├── messages_pl.js
+│   │       ├── messages_pl.min.js
+│   │       ├── messages_pt_BR.js
+│   │       ├── messages_pt_BR.min.js
+│   │       ├── messages_pt_PT.js
+│   │       ├── messages_pt_PT.min.js
+│   │       ├── messages_ro.js
+│   │       ├── messages_ro.min.js
+│   │       ├── messages_ru.js
+│   │       ├── messages_ru.min.js
+│   │       ├── messages_sd.js
+│   │       ├── messages_sd.min.js
+│   │       ├── messages_si.js
+│   │       ├── messages_si.min.js
+│   │       ├── messages_sk.js
+│   │       ├── messages_sk.min.js
+│   │       ├── messages_sl.js
+│   │       ├── messages_sl.min.js
+│   │       ├── messages_sr.js
+│   │       ├── messages_sr.min.js
+│   │       ├── messages_sr_lat.js
+│   │       ├── messages_sr_lat.min.js
+│   │       ├── messages_sv.js
+│   │       ├── messages_sv.min.js
+│   │       ├── messages_th.js
+│   │       ├── messages_th.min.js
+│   │       ├── messages_tj.js
+│   │       ├── messages_tj.min.js
+│   │       ├── messages_tr.js
+│   │       ├── messages_tr.min.js
+│   │       ├── messages_uk.js
+│   │       ├── messages_uk.min.js
+│   │       ├── messages_ur.js
+│   │       ├── messages_ur.min.js
+│   │       ├── messages_vi.js
+│   │       ├── messages_vi.min.js
+│   │       ├── messages_zh.js
+│   │       ├── messages_zh.min.js
+│   │       ├── messages_zh_TW.js
+│   │       ├── messages_zh_TW.min.js
+│   │       ├── methods_de.js
+│   │       ├── methods_de.min.js
+│   │       ├── methods_es_CL.js
+│   │       ├── methods_es_CL.min.js
+│   │       ├── methods_fi.js
+│   │       ├── methods_fi.min.js
+│   │       ├── methods_it.js
+│   │       ├── methods_it.min.js
+│   │       ├── methods_nl.js
+│   │       ├── methods_nl.min.js
+│   │       ├── methods_pt.js
+│   │       └── methods_pt.min.js
+│   ├── jqvmap
+│   │   ├── jquery.vmap.js
+│   │   ├── jquery.vmap.min.js
+│   │   ├── jqvmap.css
+│   │   ├── jqvmap.min.css
+│   │   └── maps
+│   │       ├── continents
+│   │       │   ├── jquery.vmap.africa.js
+│   │       │   ├── jquery.vmap.asia.js
+│   │       │   ├── jquery.vmap.australia.js
+│   │       │   ├── jquery.vmap.europe.js
+│   │       │   ├── jquery.vmap.north-america.js
+│   │       │   └── jquery.vmap.south-america.js
+│   │       ├── jquery.vmap.algeria.js
+│   │       ├── jquery.vmap.argentina.js
+│   │       ├── jquery.vmap.brazil.js
+│   │       ├── jquery.vmap.canada.js
+│   │       ├── jquery.vmap.croatia.js
+│   │       ├── jquery.vmap.europe.js
+│   │       ├── jquery.vmap.france.js
+│   │       ├── jquery.vmap.germany.js
+│   │       ├── jquery.vmap.greece.js
+│   │       ├── jquery.vmap.indonesia.js
+│   │       ├── jquery.vmap.iran.js
+│   │       ├── jquery.vmap.iraq.js
+│   │       ├── jquery.vmap.new_regions_france.js
+│   │       ├── jquery.vmap.russia.js
+│   │       ├── jquery.vmap.serbia.js
+│   │       ├── jquery.vmap.tunisia.js
+│   │       ├── jquery.vmap.turkey.js
+│   │       ├── jquery.vmap.ukraine.js
+│   │       ├── jquery.vmap.usa.counties.js
+│   │       ├── jquery.vmap.usa.districts.js
+│   │       ├── jquery.vmap.usa.js
+│   │       └── jquery.vmap.world.js
+│   ├── jsgrid
+│   │   ├── demos
+│   │   │   ├── basic.html
+│   │   │   ├── batch-delete.html
+│   │   │   ├── custom-grid-field.html
+│   │   │   ├── custom-load-indicator.html
+│   │   │   ├── custom-row-renderer.html
+│   │   │   ├── custom-view.html
+│   │   │   ├── data-manipulation.html
+│   │   │   ├── db.js
+│   │   │   ├── demos.css
+│   │   │   ├── external-pager.html
+│   │   │   ├── index.html
+│   │   │   ├── loading-by-page.html
+│   │   │   ├── localization.html
+│   │   │   ├── odata-service.html
+│   │   │   ├── rows-reordering.html
+│   │   │   ├── sorting.html
+│   │   │   ├── static-data.html
+│   │   │   └── validation.html
+│   │   ├── i18n
+│   │   │   ├── jsgrid-de.js
+│   │   │   ├── jsgrid-es.js
+│   │   │   ├── jsgrid-fr.js
+│   │   │   ├── jsgrid-he.js
+│   │   │   ├── jsgrid-ja.js
+│   │   │   ├── jsgrid-ka.js
+│   │   │   ├── jsgrid-pl.js
+│   │   │   ├── jsgrid-pt-br.js
+│   │   │   ├── jsgrid-pt.js
+│   │   │   ├── jsgrid-ru.js
+│   │   │   ├── jsgrid-tr.js
+│   │   │   ├── jsgrid-zh-cn.js
+│   │   │   └── jsgrid-zh-tw.js
+│   │   ├── jsgrid-theme.css
+│   │   ├── jsgrid-theme.min.css
+│   │   ├── jsgrid.css
+│   │   ├── jsgrid.js
+│   │   ├── jsgrid.min.css
+│   │   └── jsgrid.min.js
+│   ├── jszip
+│   │   ├── jszip.js
+│   │   └── jszip.min.js
+│   ├── moment
+│   │   ├── locale
+│   │   │   ├── af.js
+│   │   │   ├── ar-dz.js
+│   │   │   ├── ar-kw.js
+│   │   │   ├── ar-ly.js
+│   │   │   ├── ar-ma.js
+│   │   │   ├── ar-sa.js
+│   │   │   ├── ar-tn.js
+│   │   │   ├── ar.js
+│   │   │   ├── az.js
+│   │   │   ├── be.js
+│   │   │   ├── bg.js
+│   │   │   ├── bm.js
+│   │   │   ├── bn.js
+│   │   │   ├── bo.js
+│   │   │   ├── br.js
+│   │   │   ├── bs.js
+│   │   │   ├── ca.js
+│   │   │   ├── cs.js
+│   │   │   ├── cv.js
+│   │   │   ├── cy.js
+│   │   │   ├── da.js
+│   │   │   ├── de-at.js
+│   │   │   ├── de-ch.js
+│   │   │   ├── de.js
+│   │   │   ├── dv.js
+│   │   │   ├── el.js
+│   │   │   ├── en-SG.js
+│   │   │   ├── en-au.js
+│   │   │   ├── en-ca.js
+│   │   │   ├── en-gb.js
+│   │   │   ├── en-ie.js
+│   │   │   ├── en-il.js
+│   │   │   ├── en-nz.js
+│   │   │   ├── eo.js
+│   │   │   ├── es-do.js
+│   │   │   ├── es-us.js
+│   │   │   ├── es.js
+│   │   │   ├── et.js
+│   │   │   ├── eu.js
+│   │   │   ├── fa.js
+│   │   │   ├── fi.js
+│   │   │   ├── fo.js
+│   │   │   ├── fr-ca.js
+│   │   │   ├── fr-ch.js
+│   │   │   ├── fr.js
+│   │   │   ├── fy.js
+│   │   │   ├── ga.js
+│   │   │   ├── gd.js
+│   │   │   ├── gl.js
+│   │   │   ├── gom-latn.js
+│   │   │   ├── gu.js
+│   │   │   ├── he.js
+│   │   │   ├── hi.js
+│   │   │   ├── hr.js
+│   │   │   ├── hu.js
+│   │   │   ├── hy-am.js
+│   │   │   ├── id.js
+│   │   │   ├── is.js
+│   │   │   ├── it-ch.js
+│   │   │   ├── it.js
+│   │   │   ├── ja.js
+│   │   │   ├── jv.js
+│   │   │   ├── ka.js
+│   │   │   ├── kk.js
+│   │   │   ├── km.js
+│   │   │   ├── kn.js
+│   │   │   ├── ko.js
+│   │   │   ├── ku.js
+│   │   │   ├── ky.js
+│   │   │   ├── lb.js
+│   │   │   ├── lo.js
+│   │   │   ├── lt.js
+│   │   │   ├── lv.js
+│   │   │   ├── me.js
+│   │   │   ├── mi.js
+│   │   │   ├── mk.js
+│   │   │   ├── ml.js
+│   │   │   ├── mn.js
+│   │   │   ├── mr.js
+│   │   │   ├── ms-my.js
+│   │   │   ├── ms.js
+│   │   │   ├── mt.js
+│   │   │   ├── my.js
+│   │   │   ├── nb.js
+│   │   │   ├── ne.js
+│   │   │   ├── nl-be.js
+│   │   │   ├── nl.js
+│   │   │   ├── nn.js
+│   │   │   ├── pa-in.js
+│   │   │   ├── pl.js
+│   │   │   ├── pt-br.js
+│   │   │   ├── pt.js
+│   │   │   ├── ro.js
+│   │   │   ├── ru.js
+│   │   │   ├── sd.js
+│   │   │   ├── se.js
+│   │   │   ├── si.js
+│   │   │   ├── sk.js
+│   │   │   ├── sl.js
+│   │   │   ├── sq.js
+│   │   │   ├── sr-cyrl.js
+│   │   │   ├── sr.js
+│   │   │   ├── ss.js
+│   │   │   ├── sv.js
+│   │   │   ├── sw.js
+│   │   │   ├── ta.js
+│   │   │   ├── te.js
+│   │   │   ├── tet.js
+│   │   │   ├── tg.js
+│   │   │   ├── th.js
+│   │   │   ├── tl-ph.js
+│   │   │   ├── tlh.js
+│   │   │   ├── tr.js
+│   │   │   ├── tzl.js
+│   │   │   ├── tzm-latn.js
+│   │   │   ├── tzm.js
+│   │   │   ├── ug-cn.js
+│   │   │   ├── uk.js
+│   │   │   ├── ur.js
+│   │   │   ├── uz-latn.js
+│   │   │   ├── uz.js
+│   │   │   ├── vi.js
+│   │   │   ├── x-pseudo.js
+│   │   │   ├── yo.js
+│   │   │   ├── zh-cn.js
+│   │   │   ├── zh-hk.js
+│   │   │   └── zh-tw.js
+│   │   ├── locales.js
+│   │   ├── locales.min.js
+│   │   ├── moment-with-locales.js
+│   │   ├── moment-with-locales.min.js
+│   │   └── moment.min.js
+│   ├── overlayScrollbars
+│   │   ├── css
+│   │   │   ├── OverlayScrollbars.css
+│   │   │   └── OverlayScrollbars.min.css
+│   │   └── js
+│   │       ├── OverlayScrollbars.js
+│   │       ├── OverlayScrollbars.min.js
+│   │       ├── jquery.overlayScrollbars.js
+│   │       └── jquery.overlayScrollbars.min.js
+│   ├── pace-progress
+│   │   ├── pace.js
+│   │   ├── pace.min.js
+│   │   └── themes
+│   │       ├── black
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── blue
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── green
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── orange
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── pink
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── purple
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── red
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── silver
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       ├── white
+│   │       │   ├── pace-theme-barber-shop.css
+│   │       │   ├── pace-theme-big-counter.css
+│   │       │   ├── pace-theme-bounce.css
+│   │       │   ├── pace-theme-center-atom.css
+│   │       │   ├── pace-theme-center-circle.css
+│   │       │   ├── pace-theme-center-radar.css
+│   │       │   ├── pace-theme-center-simple.css
+│   │       │   ├── pace-theme-corner-indicator.css
+│   │       │   ├── pace-theme-fill-left.css
+│   │       │   ├── pace-theme-flash.css
+│   │       │   ├── pace-theme-flat-top.css
+│   │       │   ├── pace-theme-loading-bar.css
+│   │       │   ├── pace-theme-mac-osx.css
+│   │       │   ├── pace-theme-material.css
+│   │       │   └── pace-theme-minimal.css
+│   │       └── yellow
+│   │           ├── pace-theme-barber-shop.css
+│   │           ├── pace-theme-big-counter.css
+│   │           ├── pace-theme-bounce.css
+│   │           ├── pace-theme-center-atom.css
+│   │           ├── pace-theme-center-circle.css
+│   │           ├── pace-theme-center-radar.css
+│   │           ├── pace-theme-center-simple.css
+│   │           ├── pace-theme-corner-indicator.css
+│   │           ├── pace-theme-fill-left.css
+│   │           ├── pace-theme-flash.css
+│   │           ├── pace-theme-flat-top.css
+│   │           ├── pace-theme-loading-bar.css
+│   │           ├── pace-theme-mac-osx.css
+│   │           ├── pace-theme-material.css
+│   │           └── pace-theme-minimal.css
+│   ├── pdfmake
+│   │   ├── pdfmake.js
+│   │   ├── pdfmake.js.map
+│   │   ├── pdfmake.min.js
+│   │   ├── pdfmake.min.js.map
+│   │   └── vfs_fonts.js
+│   ├── popper
+│   │   ├── esm
+│   │   │   ├── popper-utils.js
+│   │   │   ├── popper-utils.js.map
+│   │   │   ├── popper-utils.min.js
+│   │   │   ├── popper-utils.min.js.map
+│   │   │   ├── popper.js
+│   │   │   ├── popper.js.map
+│   │   │   ├── popper.min.js
+│   │   │   └── popper.min.js.map
+│   │   ├── popper-utils.js
+│   │   ├── popper-utils.js.map
+│   │   ├── popper-utils.min.js
+│   │   ├── popper-utils.min.js.map
+│   │   ├── popper.js
+│   │   ├── popper.js.map
+│   │   ├── popper.min.js
+│   │   ├── popper.min.js.map
+│   │   └── umd
+│   │       ├── popper-utils.js
+│   │       ├── popper-utils.js.map
+│   │       ├── popper-utils.min.js
+│   │       ├── popper-utils.min.js.map
+│   │       ├── popper.js
+│   │       ├── popper.js.flow
+│   │       ├── popper.js.map
+│   │       ├── popper.min.js
+│   │       └── popper.min.js.map
+│   ├── raphael
+│   │   ├── Gruntfile.js
+│   │   ├── bower.json
+│   │   ├── dev
+│   │   │   ├── banner.txt
+│   │   │   ├── raphael.amd.js
+│   │   │   ├── raphael.core.js
+│   │   │   ├── raphael.svg.js
+│   │   │   ├── raphael.vml.js
+│   │   │   ├── raphaelTest.html
+│   │   │   └── test
+│   │   │       ├── index.html
+│   │   │       ├── svg
+│   │   │       │   └── dom.js
+│   │   │       └── vml
+│   │   │           └── dom.js
+│   │   ├── license.txt
+│   │   ├── raphael.js
+│   │   ├── raphael.min.js
+│   │   ├── raphael.no-deps.js
+│   │   ├── raphael.no-deps.min.js
+│   │   └── webpack.config.js
+│   ├── select2
+│   │   ├── css
+│   │   │   ├── select2.css
+│   │   │   └── select2.min.css
+│   │   └── js
+│   │       ├── i18n
+│   │       │   ├── af.js
+│   │       │   ├── ar.js
+│   │       │   ├── az.js
+│   │       │   ├── bg.js
+│   │       │   ├── bn.js
+│   │       │   ├── bs.js
+│   │       │   ├── build.txt
+│   │       │   ├── ca.js
+│   │       │   ├── cs.js
+│   │       │   ├── da.js
+│   │       │   ├── de.js
+│   │       │   ├── dsb.js
+│   │       │   ├── el.js
+│   │       │   ├── en.js
+│   │       │   ├── es.js
+│   │       │   ├── et.js
+│   │       │   ├── eu.js
+│   │       │   ├── fa.js
+│   │       │   ├── fi.js
+│   │       │   ├── fr.js
+│   │       │   ├── gl.js
+│   │       │   ├── he.js
+│   │       │   ├── hi.js
+│   │       │   ├── hr.js
+│   │       │   ├── hsb.js
+│   │       │   ├── hu.js
+│   │       │   ├── hy.js
+│   │       │   ├── id.js
+│   │       │   ├── is.js
+│   │       │   ├── it.js
+│   │       │   ├── ja.js
+│   │       │   ├── ka.js
+│   │       │   ├── km.js
+│   │       │   ├── ko.js
+│   │       │   ├── lt.js
+│   │       │   ├── lv.js
+│   │       │   ├── mk.js
+│   │       │   ├── ms.js
+│   │       │   ├── nb.js
+│   │       │   ├── ne.js
+│   │       │   ├── nl.js
+│   │       │   ├── pl.js
+│   │       │   ├── ps.js
+│   │       │   ├── pt-BR.js
+│   │       │   ├── pt.js
+│   │       │   ├── ro.js
+│   │       │   ├── ru.js
+│   │       │   ├── sk.js
+│   │       │   ├── sl.js
+│   │       │   ├── sq.js
+│   │       │   ├── sr-Cyrl.js
+│   │       │   ├── sr.js
+│   │       │   ├── sv.js
+│   │       │   ├── th.js
+│   │       │   ├── tk.js
+│   │       │   ├── tr.js
+│   │       │   ├── uk.js
+│   │       │   ├── vi.js
+│   │       │   ├── zh-CN.js
+│   │       │   └── zh-TW.js
+│   │       ├── select2.full.js
+│   │       ├── select2.full.min.js
+│   │       ├── select2.js
+│   │       └── select2.min.js
+│   ├── select2-bootstrap4-theme
+│   │   ├── select2-bootstrap4.css
+│   │   └── select2-bootstrap4.min.css
+│   ├── sparklines
+│   │   └── sparkline.js
+│   ├── summernote
+│   │   ├── font
+│   │   │   ├── summernote.eot
+│   │   │   ├── summernote.ttf
+│   │   │   ├── summernote.woff
+│   │   │   └── summernote.woff2
+│   │   ├── lang
+│   │   │   ├── summernote-ar-AR.js
+│   │   │   ├── summernote-ar-AR.min.js
+│   │   │   ├── summernote-ar-AR.min.js.LICENSE.txt
+│   │   │   ├── summernote-az-AZ.js
+│   │   │   ├── summernote-az-AZ.min.js
+│   │   │   ├── summernote-az-AZ.min.js.LICENSE.txt
+│   │   │   ├── summernote-bg-BG.js
+│   │   │   ├── summernote-bg-BG.min.js
+│   │   │   ├── summernote-bg-BG.min.js.LICENSE.txt
+│   │   │   ├── summernote-ca-ES.js
+│   │   │   ├── summernote-ca-ES.min.js
+│   │   │   ├── summernote-ca-ES.min.js.LICENSE.txt
+│   │   │   ├── summernote-cs-CZ.js
+│   │   │   ├── summernote-cs-CZ.min.js
+│   │   │   ├── summernote-cs-CZ.min.js.LICENSE.txt
+│   │   │   ├── summernote-da-DK.js
+│   │   │   ├── summernote-da-DK.min.js
+│   │   │   ├── summernote-da-DK.min.js.LICENSE.txt
+│   │   │   ├── summernote-de-DE.js
+│   │   │   ├── summernote-de-DE.min.js
+│   │   │   ├── summernote-de-DE.min.js.LICENSE.txt
+│   │   │   ├── summernote-el-GR.js
+│   │   │   ├── summernote-el-GR.min.js
+│   │   │   ├── summernote-el-GR.min.js.LICENSE.txt
+│   │   │   ├── summernote-es-ES.js
+│   │   │   ├── summernote-es-ES.min.js
+│   │   │   ├── summernote-es-ES.min.js.LICENSE.txt
+│   │   │   ├── summernote-es-EU.js
+│   │   │   ├── summernote-es-EU.min.js
+│   │   │   ├── summernote-es-EU.min.js.LICENSE.txt
+│   │   │   ├── summernote-fa-IR.js
+│   │   │   ├── summernote-fa-IR.min.js
+│   │   │   ├── summernote-fa-IR.min.js.LICENSE.txt
+│   │   │   ├── summernote-fi-FI.js
+│   │   │   ├── summernote-fi-FI.min.js
+│   │   │   ├── summernote-fi-FI.min.js.LICENSE.txt
+│   │   │   ├── summernote-fr-FR.js
+│   │   │   ├── summernote-fr-FR.min.js
+│   │   │   ├── summernote-fr-FR.min.js.LICENSE.txt
+│   │   │   ├── summernote-gl-ES.js
+│   │   │   ├── summernote-gl-ES.min.js
+│   │   │   ├── summernote-gl-ES.min.js.LICENSE.txt
+│   │   │   ├── summernote-he-IL.js
+│   │   │   ├── summernote-he-IL.min.js
+│   │   │   ├── summernote-he-IL.min.js.LICENSE.txt
+│   │   │   ├── summernote-hr-HR.js
+│   │   │   ├── summernote-hr-HR.min.js
+│   │   │   ├── summernote-hr-HR.min.js.LICENSE.txt
+│   │   │   ├── summernote-hu-HU.js
+│   │   │   ├── summernote-hu-HU.min.js
+│   │   │   ├── summernote-hu-HU.min.js.LICENSE.txt
+│   │   │   ├── summernote-id-ID.js
+│   │   │   ├── summernote-id-ID.min.js
+│   │   │   ├── summernote-id-ID.min.js.LICENSE.txt
+│   │   │   ├── summernote-it-IT.js
+│   │   │   ├── summernote-it-IT.min.js
+│   │   │   ├── summernote-it-IT.min.js.LICENSE.txt
+│   │   │   ├── summernote-ja-JP.js
+│   │   │   ├── summernote-ja-JP.min.js
+│   │   │   ├── summernote-ja-JP.min.js.LICENSE.txt
+│   │   │   ├── summernote-ko-KR.js
+│   │   │   ├── summernote-ko-KR.min.js
+│   │   │   ├── summernote-ko-KR.min.js.LICENSE.txt
+│   │   │   ├── summernote-lt-LT.js
+│   │   │   ├── summernote-lt-LT.min.js
+│   │   │   ├── summernote-lt-LT.min.js.LICENSE.txt
+│   │   │   ├── summernote-lt-LV.js
+│   │   │   ├── summernote-lt-LV.min.js
+│   │   │   ├── summernote-lt-LV.min.js.LICENSE.txt
+│   │   │   ├── summernote-mn-MN.js
+│   │   │   ├── summernote-mn-MN.min.js
+│   │   │   ├── summernote-mn-MN.min.js.LICENSE.txt
+│   │   │   ├── summernote-nb-NO.js
+│   │   │   ├── summernote-nb-NO.min.js
+│   │   │   ├── summernote-nb-NO.min.js.LICENSE.txt
+│   │   │   ├── summernote-nl-NL.js
+│   │   │   ├── summernote-nl-NL.min.js
+│   │   │   ├── summernote-nl-NL.min.js.LICENSE.txt
+│   │   │   ├── summernote-pl-PL.js
+│   │   │   ├── summernote-pl-PL.min.js
+│   │   │   ├── summernote-pl-PL.min.js.LICENSE.txt
+│   │   │   ├── summernote-pt-BR.js
+│   │   │   ├── summernote-pt-BR.min.js
+│   │   │   ├── summernote-pt-BR.min.js.LICENSE.txt
+│   │   │   ├── summernote-pt-PT.js
+│   │   │   ├── summernote-pt-PT.min.js
+│   │   │   ├── summernote-pt-PT.min.js.LICENSE.txt
+│   │   │   ├── summernote-ro-RO.js
+│   │   │   ├── summernote-ro-RO.min.js
+│   │   │   ├── summernote-ro-RO.min.js.LICENSE.txt
+│   │   │   ├── summernote-ru-RU.js
+│   │   │   ├── summernote-ru-RU.min.js
+│   │   │   ├── summernote-ru-RU.min.js.LICENSE.txt
+│   │   │   ├── summernote-sk-SK.js
+│   │   │   ├── summernote-sk-SK.min.js
+│   │   │   ├── summernote-sk-SK.min.js.LICENSE.txt
+│   │   │   ├── summernote-sl-SI.js
+│   │   │   ├── summernote-sl-SI.min.js
+│   │   │   ├── summernote-sl-SI.min.js.LICENSE.txt
+│   │   │   ├── summernote-sr-RS-Latin.js
+│   │   │   ├── summernote-sr-RS-Latin.min.js
+│   │   │   ├── summernote-sr-RS-Latin.min.js.LICENSE.txt
+│   │   │   ├── summernote-sr-RS.js
+│   │   │   ├── summernote-sr-RS.min.js
+│   │   │   ├── summernote-sr-RS.min.js.LICENSE.txt
+│   │   │   ├── summernote-sv-SE.js
+│   │   │   ├── summernote-sv-SE.min.js
+│   │   │   ├── summernote-sv-SE.min.js.LICENSE.txt
+│   │   │   ├── summernote-ta-IN.js
+│   │   │   ├── summernote-ta-IN.min.js
+│   │   │   ├── summernote-ta-IN.min.js.LICENSE.txt
+│   │   │   ├── summernote-th-TH.js
+│   │   │   ├── summernote-th-TH.min.js
+│   │   │   ├── summernote-th-TH.min.js.LICENSE.txt
+│   │   │   ├── summernote-tr-TR.js
+│   │   │   ├── summernote-tr-TR.min.js
+│   │   │   ├── summernote-tr-TR.min.js.LICENSE.txt
+│   │   │   ├── summernote-uk-UA.js
+│   │   │   ├── summernote-uk-UA.min.js
+│   │   │   ├── summernote-uk-UA.min.js.LICENSE.txt
+│   │   │   ├── summernote-uz-UZ.js
+│   │   │   ├── summernote-uz-UZ.min.js
+│   │   │   ├── summernote-uz-UZ.min.js.LICENSE.txt
+│   │   │   ├── summernote-vi-VN.js
+│   │   │   ├── summernote-vi-VN.min.js
+│   │   │   ├── summernote-vi-VN.min.js.LICENSE.txt
+│   │   │   ├── summernote-zh-CN.js
+│   │   │   ├── summernote-zh-CN.min.js
+│   │   │   ├── summernote-zh-CN.min.js.LICENSE.txt
+│   │   │   ├── summernote-zh-TW.js
+│   │   │   ├── summernote-zh-TW.min.js
+│   │   │   └── summernote-zh-TW.min.js.LICENSE.txt
+│   │   ├── plugin
+│   │   │   ├── databasic
+│   │   │   │   ├── summernote-ext-databasic.css
+│   │   │   │   └── summernote-ext-databasic.js
+│   │   │   ├── hello
+│   │   │   │   └── summernote-ext-hello.js
+│   │   │   └── specialchars
+│   │   │       └── summernote-ext-specialchars.js
+│   │   ├── summernote-bs4.css
+│   │   ├── summernote-bs4.js
+│   │   ├── summernote-bs4.js.map
+│   │   ├── summernote-bs4.min.css
+│   │   ├── summernote-bs4.min.js
+│   │   ├── summernote-bs4.min.js.LICENSE.txt
+│   │   ├── summernote-bs4.min.js.map
+│   │   ├── summernote-lite.css
+│   │   ├── summernote-lite.js
+│   │   ├── summernote-lite.js.map
+│   │   ├── summernote-lite.min.css
+│   │   ├── summernote-lite.min.js
+│   │   ├── summernote-lite.min.js.LICENSE.txt
+│   │   ├── summernote-lite.min.js.map
+│   │   ├── summernote.css
+│   │   ├── summernote.js
+│   │   ├── summernote.js.map
+│   │   ├── summernote.min.css
+│   │   ├── summernote.min.js
+│   │   ├── summernote.min.js.LICENSE.txt
+│   │   └── summernote.min.js.map
+│   ├── sweetalert2
+│   │   ├── sweetalert2.all.js
+│   │   ├── sweetalert2.all.min.js
+│   │   ├── sweetalert2.css
+│   │   ├── sweetalert2.js
+│   │   ├── sweetalert2.min.css
+│   │   └── sweetalert2.min.js
+│   ├── sweetalert2-theme-bootstrap-4
+│   │   ├── bootstrap-4.css
+│   │   ├── bootstrap-4.min.css
+│   │   └── bootstrap-4.scss
+│   ├── tempusdominus-bootstrap-4
+│   │   ├── css
+│   │   │   ├── tempusdominus-bootstrap-4.css
+│   │   │   └── tempusdominus-bootstrap-4.min.css
+│   │   └── js
+│   │       ├── tempusdominus-bootstrap-4.js
+│   │       └── tempusdominus-bootstrap-4.min.js
+│   └── toastr
+│       ├── toastr.css
+│       ├── toastr.js.map
+│       ├── toastr.min.css
+│       └── toastr.min.js
+├── starter.html
+└── tree.txt
+
+223 directories, 2272 files

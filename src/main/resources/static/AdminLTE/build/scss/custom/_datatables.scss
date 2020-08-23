@@ -1,0 +1,22 @@
+.dt-buttons {
+
+  .btn-secondary {
+    @extend .btn-button;
+  }
+
+  .dropdown-toggle::after {
+    content: unset;
+  }
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+  text-align: unset;
+}
+
+table.dataTable.fixedHeader-floating {
+  top: 45px !important;
+}
+
+table.dataTable th {
+  white-space: nowrap;
+}
