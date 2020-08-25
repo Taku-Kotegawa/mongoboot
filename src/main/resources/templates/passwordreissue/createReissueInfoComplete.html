@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{layout/template :: layout(~{::title},~{::body/content()})}">
+<html th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
-<meta charset="UTF-8" />
-<title>Password Reissue URL is generated</title>
-<link rel="stylesheet" th:href="@{/resources/app/css/styles.css}">
+    <title>パスワード再発行</title>
 </head>
 <body>
-    <div id="wrapper">
-        <h1>Your Password Reissue URL was successfully generated.</h1>
-        The URL was sent to your registered E-mail address.<br /> Please
-        access the URL and enter the secret shown below.
-        <h3>Secret : <span id=secret th:text=${secret}></span></h3>
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>パスワード再発行</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
     </div>
+</section>
+<section class="content">
+    <div class="container">
+
+        <div id="expiredMessage" th:class="|callout callout-${resultMessages.type}|"
+             th:if="${resultMessages} != null">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
+        <div class="callout callout-success">
+            事前登録のメールアドレスにパスワード再発行用URLを送信しました。
+            URLにアクセスし、下記の暗証番号を入力してください。(暗証番号には期限があります)
+            <br>
+            <h3>暗証番号 : <span id="secret" th:text=${secret}></span></h3>
+        </div>
+        <!-- ここより上にメインコンテンツを記入 -->
+    </div>
+</section>
+<script>
+</script>
 </body>
 </html>

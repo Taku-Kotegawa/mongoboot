@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta charset="utf-8">
-    <title th:text="${#messages.msgOrNull('title.welcome.home')} ?: _">Home</title>
-    <link rel="stylesheet"
-          href="../../static/css/styles.css" th:href="@{/css/styles.css}">
+    <title>Welcom</title>
 </head>
 <body>
-<div id="wrapper">
-    <div th:if="${resultMessages} != null" id="expiredMessage"
-         th:class="|alert alert-${resultMessages.type}|">
-        <ul>
-            <li th:each="message : ${resultMessages}"
-                th:text="${#messages.msgWithParams(message.code, message.args)}"></li>
-        </ul>
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>Hello world!</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
     </div>
-    <h1 id="title">Hello world!</h1>
+</section>
+<section class="content">
+    <div class="container">
 
-    <p th:text="|Welcome ${account.firstName} ${account.lastName}|"></p>
+        <div th:if="${resultMessages} != null" id="expiredMessage"
+             th:class="|callout callout-${resultMessages.type}|">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
 
-    <p id="lastLogin" th:if="lastLoginDate !=null"
-       th:text="|Last login date is ${#temporals.format(lastLoginDate, 'yyyy-MM-dd HH:mm:ss')}.|"></p>
+        <p th:text="|Welcome ${account.firstName} ${account.lastName}|"></p>
 
-    <div>
-        <a id="info" th:href="@{/account}">
-            Account Information
-        </a>
+        <p id="lastLogin" th:if="lastLoginDate !=null"
+           th:text="|Last login date is ${#temporals.format(lastLoginDate, 'yyyy-MM-dd HH:mm:ss')}.|"></p>
+
+        <div class="row">
+            <div>
+                <a id="info" th:href="@{/account}">
+                    アカウント情報
+                </a>
+            </div>
+
+
+            <div sec:authorize="hasRole('ADMIN')">
+                <a id="unlock" th:href="@{/unlock?form}">
+                    ロック解除
+                </a>
+            </div>
+
+            <form th:action="@{/logout}" method="POST">
+                <button id="logout" class="btn-button">ログアウト</button>
+            </form>
+        </div>
+
     </div>
 
-    <div sec:authorize="hasRole('ADMIN')">
-        <a id="unlock" th:href="@{/unlock?form}">
-            Unlock Account
-        </a>
+</section>
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+        <a href="#" class="btn-button">BackToTop</a>
     </div>
 
-    <form th:action="@{/logout}" method="POST">
-        <button id="logout">Logout</button>
-    </form>
-
-</div>
+    <a href="#" class="btn-button">BackToTop</a>
+</footer>
 </body>
 </html>

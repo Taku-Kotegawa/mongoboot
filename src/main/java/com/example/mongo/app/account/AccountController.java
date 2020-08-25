@@ -1,6 +1,8 @@
 package com.example.mongo.app.account;
 
 
+import com.example.mongo.app.account.AccountCreateForm.Confirm;
+import com.example.mongo.app.account.AccountCreateForm.CreateAccount;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.AccountImage;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
@@ -89,7 +91,7 @@ public final class AccountController {
 
     @PostMapping(value = "/create", params = "confirm")
     public String createConfirm(
-            @Validated({AccountCreateForm.Confirm.class, Default.class}) AccountCreateForm form,
+            @Validated({Confirm.class, Default.class}) AccountCreateForm form,
             BindingResult result, Model model,
             RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
@@ -114,7 +116,7 @@ public final class AccountController {
 
     @PostMapping("/create")
     public String create(
-            @Validated({AccountCreateForm.CreateAccount.class, Default.class}) AccountCreateForm form,
+            @Validated({CreateAccount.class, Default.class}) AccountCreateForm form,
             BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return createForm();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>パスワードリセット</title>
+    <title>**Page Title**</title>
 </head>
 <body>
 <section class="content-header">
@@ -11,7 +11,7 @@
         <div class="row mb-2">
             <div class="col-18">
                 <!-- ページタイトルを記入 -->
-                <h3>パスワードリセット</h3>
+                <h3>**ページタイトル**</h3>
             </div>
             <div class="col-18">
                 <!-- ページタイトル右の余白 -->
@@ -30,12 +30,14 @@
             </ul>
         </div>
         <!-- ここより下にメインコンテンツを記入 -->
-        <div class="callout callout-success">
-            パスワードが再設定されました。<br>
-            <a th:href="@{/}">ホーム画面に戻る</a>
-        </div>
         <!-- ここより上にメインコンテンツを記入 -->
     </div>
 </section>
+<script>
+  $(function () {
+
+  });
+
+</script>
 </body>
 </html>

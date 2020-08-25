@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Guruguru</title>
+</head>
+<body>
+<style>
+  table td:nth-child(2) {
+    word-break: break-all;
+  }
+
+  .dropdown-menu.combobox {
+    overflow: auto;
+    max-height: 250px;
+    min-width: 100%;
+    padding: 0;
+  }
+
+  .dropdown-menu.combobox li.autocomplete {
+    padding: .2rem .4rem;
+    min-height: 1.5rem;
+  }
+
+  .dropdown-menu.combobox li.autocomplete:hover {
+    background-color: lightgray;
+  }
+  </style>
+
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>GuruGuru</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+
+        <div id="expiredMessage" th:class="|callout callout-${resultMessages.type}|"
+             th:if="${resultMessages} != null">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
+
+        <form id="guruguruForm" autocomplete="off" enctype="multipart/form-data" method="POST" th:action="@{/guruguru}"
+              th:object="${guruguruForm}">
+
+            <!-- @see https://qiita.com/rubytomato@github/items/8da1bb19537bbfc9c2ea -->
+
+            <!-- EnterキーによるPOSTを無効化 -->
+            <input disabled style="display:none" type="submit"/>
+
+            <div class="row py-4">
+                <a class="btn btn-button mr-2" href="#">再描画</a>
+                <button class="btn btn-button" type="submit">送信</button>
+            </div>
+
+            <table class="table table-inverse">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>UI部品名</th>
+                    <th width="50%">フォーム</th>
+                    <th width="30%">表示</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>テキストフィールド</td>
+                    <td>
+                        <label for="textfield001">テキストフィールド001</label>
+                        <input class="form-control" id="textfield001" name="textfield001" th:errorclass="is-invalid"/>
+                        <span class="invalid-feedback" th:errors="*{textfield001}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{textfield001}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>テキストフィールド(数値・整数)</td>
+                    <td>
+                        <label for="textfield002">テキストフィールド002(数値・整数)</label>
+                        <input class="form-control" name="textfield002" th:errorclass="is-invalid"/>
+                        <span class="invalid-feedback" th:errors="*{textfield002}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{textfield002}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>テキストフィールド(数値・小数あり)</td>
+                    <td>
+                        <label for="textfield003">テキストフィールド003(数値・小数あり)</label>
+                        <input class="form-control" name="textfield003" th:errorclass="is-invalid"/>
+                        <span class="invalid-feedback" th:errors="*{textfield003}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{textfield003}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>テキストフィールド(真偽値)</td>
+                    <td>
+                        <label for="textfield004">テキストフィールド004(真偽値)</label>
+                        <input class="form-control" name="textfield004" th:errorclass="is-invalid"/>
+                        <span class="invalid-feedback" th:errors="*{textfield004}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{textfield004}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>テキストフィールド(複数の値)</td>
+                    <td>
+                        <label for="textfield005">テキストフィールド005(複数の値)</label>
+                        <input class="form-control" name="textfield005" th:errorclass="is-invalid"/>
+                        <span class="invalid-feedback" th:errors="*{textfield005}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{textfield005}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ラジオボタン</td>
+                    <td>
+                        <div>
+                            <label for="radio002">ラジオボタン1</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="" id="radio0011" name="radio001" th:errorclass="is-invalid" type="radio" value="true"/>
+                            <label for="radio0011">はい</label>
+                            <input class="" id="radio0012" name="radio001" th:errorclass="is-invalid" type="radio" value="false"/>
+                            <label for="radio0012">いいえ</label>
+                        </div>
+                        <div>
+                            <span class="invalid-feedback" th:errors="*{radio001}"/>
+                        </div>
+                    </td>
+                    <td>
+                        <span th:text="*{radio001}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ラジオボタンズ</td>
+                    <td>
+                        <div>
+                            <label for="radio002">ラジオボタン2</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <div class="" th:each="item : ${radio002Options}">
+                                <input class="" th:errorclass="is-invalid" th:field="*{radio002}"
+                                       th:value="${item.value}" type="radio"/>
+                                <label class="" th:for="${#ids.prev('radio002')}"
+                                       th:text="${item.label}"></label>
+                            </div>
+                        </div>
+                        <span class="" th:errorclass="is-invalid" th:errors="*{radio002}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{radio002}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>チェックボックス</td>
+                    <td>
+                        <div>
+                            <label for="checkbox001">チェックボックス1</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="" id="checkbox001" name="checkbox001" th:errorclass="is-invalid"
+                                   type="checkbox" value="yes"/>
+                            <label for="checkbox001">利用規約に合意する</label>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{checkbox001}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{checkbox001}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>チェックボックス</td>
+                    <td>
+                        <div>
+                            <label for="checkbox002">チェックボックス2</label>
+                        </div>
+
+                        <div class="form-check-inline" th:each="item : ${radio002Options}">
+                            <input class="" th:errorclass="is-invalid" th:field="*{checkbox002}"
+                                   th:value="${item.value}" type="checkbox"/>
+                            <label class="" th:for="${#ids.prev('checkbox002')}"
+                                   th:text="${item.label}"></label>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{checkbox002}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{checkbox002}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>テキストエリア</td>
+                    <td>
+                        <div>
+                            <label for="textarea001">テキストエリア</label>
+                            <textarea class="form-control" id="textarea001" name="textarea001" rows="5"
+                                      th:errorclass="is-invalid"></textarea>
+                            <span class="invalid-feedback" th:errors="*{textarea001}"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <span th:text="*{textarea001}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        日付
+                    </td>
+                    <td>
+                        <label for="localdate001">日付</label>
+                        <div class="input-group" data-target-input="nearest" id="localdate001-input-group">
+                            <input class="form-control datetimepicker-input" data-target="#localdate001-input-group"
+                                   name="localdate001"
+                                   th:errorclass="is-invalid"/>
+                            <div class="input-group-append" data-target="#localdate001-input-group"
+                                 data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar fa-fw"></i></div>
+                            </div>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{localdate001}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${#temporals.format(guruguruForm.localdate001, 'yyyy/MM/dd')}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        日付と時刻
+                    </td>
+                    <td>
+                        <label for="localdatetime001">日付と時刻</label>
+                        <!-- DatePickerで時刻を扱うためにページ内でJavaScriptが必要-->
+                        <div class="input-group datetime" data-target-input="nearest" id="localdatetime001-input-group">
+                            <input class="form-control datetimepicker-input" data-target="#localdatetime001-input-group"
+                                   name="localdatetime001"
+                                   th:errorclass="is-invalid"/>
+                            <div class="input-group-append" data-target="#localdatetime001-input-group"
+                                 data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="far fa-clock fa-fw"></i></div>
+                            </div>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{localdatetime001}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${#temporals.format(guruguruForm.localdatetime001, 'yyyy/MM/dd HH:mm')}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト</td>
+                    <td>
+                        <label for="select001">セレクト(単一の値)</label>
+                        <select class="form-control" th:errorclass="is-invalid" th:field="*{select001}">
+                            <option value="">---</option>
+                            <option th:each="item : ${selectoptions}" th:text="${item.label}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{select001}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{select001}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト</td>
+                    <td>
+                        <label for="select005">セレクト(単一の値)</label>
+                        <select class="form-control" th:errorclass="is-invalid" th:field="*{select005}">
+                            <option value="">---</option>
+                            <option th:each="item : ${selectoptions}" th:text="${item.label}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{select005}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{select005}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト</td>
+                    <td>
+                        <label for="orderStatus">セレクト(単一の値・CodeList)</label>
+                        <select class="form-control" th:errorclass="is-invalid" th:field="*{orderStatus}">
+                            <option value="">---</option>
+                            <option th:each="item : ${CL_ORDERSTATUS}" th:text="${item.key}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{orderStatus}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{orderStatus}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト</td>
+                    <td>
+                        <label for="select002">セレクト(複数の値)</label>
+                        <select class="form-control" multiple="multiple" size="4" th:errorclass="is-invalid"
+                                th:field="*{select002}">
+                            <option value="">---</option>
+                            <option th:each="item : ${selectoptions}" th:text="${item.label}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{select002}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{select002}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト(Select2)</td>
+                    <td>
+                        <label for="select003">セレクト(Select2 単一の値)</label>
+                        <select class="form-control select2" th:errorclass="is-invalid" th:field="*{select003}">
+                            <option value="">---</option>
+                            <option th:each="item : ${selectoptions}" th:text="${item.label}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{select003}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{select003}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト(Select2)</td>
+                    <td>
+                        <label for="select004">セレクト(Select2 複数の値)</label>
+                        <select class="form-control select2" multiple="multiple" th:errorclass="is-invalid"
+                                th:field="*{select004}">
+                            <option value="">---</option>
+                            <option th:each="item : ${selectoptions}" th:text="${item.label}" th:value="${item.value}">
+                                pulldown
+                            </option>
+                        </select>
+                        <span class="invalid-feedback" th:errors="*{select004}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{select004}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト(Select2-tags)</td>
+                    <td>
+                        <label for="combobox001">セレクト(Select2-tags)</label>
+                        <div>
+                            <select class="form-control select2-tags" th:errorclass="is-invalid"
+                                    th:field="*{combobox001}">
+                                <option value="">---</option>
+                                <option th:each="item : ${selectoptions}" th:text="${item.label}"
+                                        th:value="${item.value}">pulldown
+                                </option>
+                            </select>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{combobox001}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{combobox001}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>セレクト(Select2-tags)</td>
+                    <td>
+                        <label for="combobox002">セレクト(Select2-tags 複数の値)</label>
+                        <div>
+                            <select class="form-control select2-tags" multiple="multiple" th:errorclass="is-invalid"
+                                    th:field="*{combobox002}">
+                                <option value="">---</option>
+                                <option th:each="item : ${selectoptions}" th:text="${item.label}"
+                                        th:value="${item.value}">pulldown
+                                </option>
+                            </select>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{combobox002}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{combobox002}"></span>
+                    </td>
+
+                <tr>
+                    <td>
+                        コンボボックス
+                    </td>
+                    <td>
+                        <label for="combobox004">コンボボックス(datalist)</label>
+                        <div>
+                            <input class="form-control" list="keywords" name="combobox004"
+                                   th:errorclass="is-invalid"/>
+                            <datalist id="keywords">
+                                <option value="ウィキペディア">
+                                <option value="ウィルス対策">
+                                <option value="ウィンドウズ">
+                            </datalist>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{combobox004}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{combobox004}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        コンボボックス
+                    </td>
+                    <td>
+                        <label for="combobox005">コンボボックス(Bootstrap-toggle & Filter)</label>
+                        <!-- @See https://www.w3schools.com/bootstrap/bootstrap_filters.asp -->
+                        <div class="dropdown input-group">
+                            <input class="form-control" name="combobox005" th:errorclass="is-invalid"/>
+                            <div class="input-group-append" data-toggle="dropdown">
+                                <div class="input-group-text"><i class="fas fa-angle-down"></i></div>
+                            </div>
+                            <ul aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right combobox">
+                                <input class="form-control" id="myInput" placeholder="Filter.." type="text">
+                                <li class="autocomplete" data-autocomplete="${item.label}" data-target="combobox005"
+                                    th:each="item : ${selectoptionsblank}" th:text="${item.label}">
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{combobox005}"></span>
+                    </td>
+                    <td>
+                        <span th:text="*{combobox005}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>ファイル
+                    </td>
+                    <td>
+                        <label for="file001">ファイル</label>
+                        <div>
+                            <input class="form-control-file" id="file001" name="file001" th:errorclass="is-invalid"
+                                   type="file"/>
+                        </div>
+                        <span class="invalid-feedback" th:errors="*{file001}"/>
+                    </td>
+                    <td>
+                        <span th:text="*{file001.originalFilename}"></span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+
+        <!-- ここより上にメインコンテンツを記入 -->
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="float-right">
+            <a class="btn btn-button mr-2" href="">再描画</a>
+            <button class="btn btn-button" form="guruguruForm" type="submit">送信</button>
+        </div>
+        <div>
+            <a class="btn-button" href="#">BackToTop</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+  $(function () {
+
+    $('.select2').select2();
+
+    $('.select2[multiple]').select2({
+      closeOnSelect: false
+    });
+
+    $('.select2-tags').select2({
+      tags: true,
+    });
+
+    $('.datetime').datetimepicker({
+      format: '',
+    });
+
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $(".dropdown-menu li").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+
+  });
+
+  $(document).on('ontouched click', '.autocomplete', function () {
+    var text = $(this).data('autocomplete');
+    var target = $(this).data('target');
+    $('input[name="' + target + '"]').val(text);
+  });
+
+</script>
+</body>
+</html>

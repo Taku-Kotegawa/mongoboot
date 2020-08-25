@@ -172,6 +172,6 @@ public class GuruguruForm {
     @UploadFileRequired
     @UploadFileNotEmpty
     @UploadFileMaxSize(value = 2024 * 1024)
-    private MultipartFile file001;
+    private transient MultipartFile file001;
 
 }

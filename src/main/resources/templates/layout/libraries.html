@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="libraries" th:remove="tag">
+
+    <!-- JQuery ----------------------------------------------------------------------------------------------------------->
+    <script th:src="@{/AdminLTE/plugins/jquery/jquery.min.js}"></script>
+
+    <!-- ダブルクリック防止 ------------------------------------------------------------------------------------------------->
+    <script th:src="@{/js/blockdoubleclick.js}"></script>
+
+    <!-- Bootstrap 4 ------------------------------------------------------------------------------------------------------>
+    <script th:src="@{/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- moment ----------------------------------------------------------------------------------------------------------->
+    <script th:src="@{/AdminLTE/plugins/moment/moment.min.js}"></script>
+    <script th:src="@{/AdminLTE/plugins/moment/locale/ja.js}"></script>
+
+    <!-- eModal ----------------------------------------------------------------------------------------------------------->
+    <script th:src="@{/plugins/eModal/dist/eModal.min.js}"></script>
+
+    <!-- Select2 ---------------------------------------------------------------------------------------------------------->
+    <link rel="stylesheet" th:href="@{/AdminLTE/plugins/select2/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
+    <script th:src="@{/AdminLTE/plugins/select2/js/select2.full.min.js}"></script>
+
+    <!-- Tempusdominus Bootstrap 4 --------------------------------------------------------------------------------------->
+    <link rel="stylesheet" th:href="@{/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}">
+    <script th:src="@{/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js}"></script>
+    <script th:src="@{/js/datetimepicker-default.js}"></script>
+
+    <!-- Font Awesome Icons ----------------------------------------------------------------------------------------------->
+    <link rel="stylesheet" th:href="@{/AdminLTE/plugins/fontawesome-free/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/AdminLTE/plugins/fontawesome-free/css/v4-shims.min.css}">
+
+    <!-- Admin LTE & Custom Style ----------------------------------------------------------------------------------------->
+    <!-- (一番最後) -->
+    <link rel="stylesheet" th:href="@{/AdminLTE/dist/css/adminlte.min.css}">
+    <!-- <script th:src="@{dist/js/adminlte.min.js}"></script> -->
+
+</div>
+</body>
+</html>
