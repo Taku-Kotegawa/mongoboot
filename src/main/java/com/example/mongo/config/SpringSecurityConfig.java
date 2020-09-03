@@ -41,6 +41,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/reissue/**").permitAll()
                 .anyRequest()
                 .authenticated();
 

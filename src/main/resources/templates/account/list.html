@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>アカウント一覧</title>
+</head>
+<body>
+
+<div id="datatables-libraries" th:replace="~{layout/datatables :: datatables-libraries}"></div>
+
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>アカウント一覧</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+
+        <div id="expiredMessage" th:class="|callout callout-${resultMessages.type}|"
+             th:if="${resultMessages} != null">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
+
+<!--        <div class="card">-->
+<!--            <div class="card-body">-->
+<!--                <div class="row">-->
+<!--                    <div class-="co4">-->
+<!--                        <label>氏名</label>-->
+<!--                        <input class="dataTables_column_filter form-control" data-column="3" id="col_filter_3"-->
+<!--                               type="text">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <table class="table-sm table-striped" id="acountlist">
+            <thead>
+            <tr class="filter">
+                <th class="text-center px-1">
+                    <button class="btn" onclick="checkAll();">
+                        <i class="fas fa-check"></i>
+                    </button>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr class="title">
+                <th class="text-center px-0"></th>
+                <th>操作</th>
+                <th>username</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>email</th>
+                <th>url</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- ここより上にメインコンテンツを記入 -->
+    </div>
+</section>
+<script>
+$(document)
+    .ready(
+      function () {
+
+        // 項目単位フィルタ用のInputフィールドを追加する。
+        var startcolnum = 2;
+        $('tr.filter th').each(function () {
+          var idx = $(this).index();
+          if (startcolnum <= idx) {
+            $(this).html('<input type="text" id="col_filter_' + idx + '" data-column="' + idx +
+              '" class="dataTables_column_filter form-control" />');
+          }
+        });
+
+        var table = $('#acountlist').DataTable({
+
+          // 一覧に表示する項目とJSONの項目にマッピング
+          'columns': [
+            {'data': 'username',              className: 'text-center'},
+            {'data': 'operations',            className: ''           },
+            {'data': 'username',              className: ''           },
+            {'data': 'firstName',             className: ''           },
+            {'data': 'lastName',              className: ''           },
+            {'data': 'email',                 className: ''           },
+            {'data': 'url',                   className: ''           },
+          ],
+
+          // 項目別の設定
+          'columnDefs': [
+            {'targets': 0, 'orderable': false, 'searchable': false,
+              'checkboxes': {'selectRow': true }, },
+            {'targets': 1, 'orderable': false, 'searchable': false},
+          ],
+
+          // 初期ソート
+          'order': [
+            [2, 'asc']
+          ],
+
+          // ボタンの表示
+          'buttons': ['colvis', 'stateClear', 'createnew'],
+
+          // データロード後処理
+          'initComplete': function (settings, json) {
+            // グローバルフィルターの仕様変更(Enterキーでサーバに送信
+            fnGlobalFilterOnReturn(table);
+          },
+        });
+
+        // ページネーション後に画面トップに戻る
+        table.on('page.dt', function () {
+          $('html, body').animate({
+            scrollTop: 0
+          }, 300);
+        });
+
+        // 項目単位フィルタの追加
+        // addFieldFilter(table)
+        addFieldFilter2(table)
+
+      });
+
+  // 一括チェック処理(Server-side用、要StateSave)
+  function checkAll() {
+    var storageKey = "DataTables_acountlist_/myscaffold-web/accounts/list";
+    var url = '/myscaffold-web/accounts/list/allkeyjson';
+    var stateSaveData = JSON.parse(localStorage.getItem(storageKey));
+    $.getJSON(url, function(data){
+      data.forEach(function (value) {
+        stateSaveData.checkboxes[0][value] = 1;
+      });
+      localStorage.setItem(storageKey, JSON.stringify(stateSaveData));
+      location.reload()
+    });
+  }
+</script>
+</body>
+</html>

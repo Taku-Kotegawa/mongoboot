@@ -3,14 +3,20 @@ package com.example.mongo.app.account;
 
 import com.example.mongo.app.account.AccountCreateForm.Confirm;
 import com.example.mongo.app.account.AccountCreateForm.CreateAccount;
+import com.example.mongo.app.common.StringUtils;
+import com.example.mongo.app.common.datatables.DataTablesInput;
+import com.example.mongo.app.common.datatables.DataTablesOutput;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.AccountImage;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
 import com.example.mongo.domain.model.common.TempFile;
 import com.example.mongo.domain.repository.authentication.AccountImageRepository;
+import com.example.mongo.domain.service.authentication.AccountService;
 import com.example.mongo.domain.service.authentication.AccountSharedService;
 import com.example.mongo.domain.service.common.FileUploadSharedService;
 import com.github.dozermapper.core.Mapper;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.RowBounds;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +35,11 @@ import org.terasoluna.gfw.common.message.ResultMessages;
 
 import javax.validation.groups.Default;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.*;
 
 import static com.example.mongo.app.common.constants.MessageKeys.E_SL_AC_5001;
 
+@Slf4j
 @Controller
 @RequestMapping("account")
 public final class AccountController {
@@ -44,10 +51,13 @@ public final class AccountController {
     private AccountSharedService accountSharedService;
 
     @Autowired
-    AccountImageRepository accountRepository;
+    private AccountImageRepository accountRepository;
 
     @Autowired
     private Mapper beanMapper;
+
+    @Autowired
+    private AccountService accountService;
 
     @ModelAttribute
     public AccountCreateForm setUpAccountCreateForm() {
@@ -147,115 +157,47 @@ public final class AccountController {
         return "account/list";
     }
 
-//    @ResponseBody
-//    @RequestMapping(value = "/list/json2", method = RequestMethod.GET)
-//    public DataTablesOutput<AccountListBean> getUsers(@Valid DataTablesInput input) {
-//
-//        List<AccountListBean> accountListBeanList = new ArrayList<>();
-//        DataTablesOutput<AccountListBean> output = new DataTablesOutput<>();
-//
-//        RowBounds rowBounds = new RowBounds(input.getStart(), input.getLength());
-//
-//
-//        AccountExample example = new AccountExample();
-//
-//        // グローバルフィルタの入力値(input.getSearch().getValue())は、検索可能な項目に対するOR条件
-//        // 大文字小文字の区別なし
-//        if (!StringUtils.isEmpty(input.getSearch().getValue())) {
-//            String gSearchWord = '%' + input.getSearch().getValue() + '%';
-//            example.or().andUsernameLike(gSearchWord);
-//            example.or().andFirstNameLike(gSearchWord);
-//            example.or().andLastNameLike(gSearchWord);
-//            example.or().andEmailLike(gSearchWord);
-//            example.or().andUrlLike(gSearchWord);
-//        }
-//
-//        // フィルードフィルタはAND条件
-//        AccountExample.Criteria criteria = example.or();
-//        for (Column column : input.getColumns()) {
-//            if (column.getSearchable() && !StringUtils.isEmpty(column.getSearch().getValue())) {
-//                String fSearchWord = '%' + column.getSearch().getValue() + '%';
-//
-//                switch (StringUtils.lowerCase(column.getData())) {
-//                    case "username":
-//                        criteria.andUsernameLike(fSearchWord);
-//                        break;
-//                    case "firstname":
-//                        criteria.andFirstNameLike(fSearchWord);
-//                        break;
-//                    case "lastname":
-//                        criteria.andLastNameLike(fSearchWord);
-//                        break;
-//                    case "email":
-//                        criteria.andEmailLike(fSearchWord);
-//                        break;
-//                    case "url":
-//                        criteria.andUrlLike(fSearchWord);
-//                        break;
-//                    default:
-//                        throw new IllegalStateException("Unexpected value: " + StringUtils.lowerCase(column.getData()));
-//                }
-//            }
-//        }
-//
-//        // 並び順
-//        example.setOrderByClause(input.getOrderByClause());
-//
-//        // 追加項目、HTMLエスケープ
-//        List<Account> accountList = accountSharedService.findAllByExample(example, rowBounds);
-//        for (Account account : accountList) {
-//            AccountListBean accountListBean = beanMapper.map(account, AccountListBean.class);
-//            accountListBean.setOperations("<a href=\"http://www.stnet.co.jp\">参照</a>");
-//
-//
-//            // 追加処理
-//
-//
-//            accountListBeanList.add(accountListBean);
-//        }
-//        output.setData(accountListBeanList);
-//
-//
-//        // 必要な情報をセット
-//        output.setDraw(input.getDraw() + 1);
-//        output.setRecordsTotal(accountSharedService.countByExample(new AccountExample()));
-//        output.setRecordsFiltered(accountSharedService.countByExample(example));
-//        output.setError("");
-//
-//        return output;
-//    }
 
-//    @ResponseBody
-//    @RequestMapping(value = "/list/json", method = RequestMethod.GET)
-//    public DataTablesOutput<AccountListBean> getListJson(@Valid DataTablesInput input) {
-//
-//        RowBounds rowBounds = new RowBounds(input.getStart(), input.getLength());
-//        List<Account> accountList = accountExRepository.selectByExampleWithRowbounds(input, rowBounds);
-//
-//        // 追加項目、HTMLエスケープ
-//        List<AccountListBean> accountListBeanList = new ArrayList<>();
-//        for (Account account : accountList) {
-//            AccountListBean accountListBean = beanMapper.map(account, AccountListBean.class);
-//            accountListBean.setOperations("<a href=\"http://www.stnet.co.jp\">参照</a>");
-//
-//
-//            accountListBean.setDT_RowId(account.getUsername() + "_");
-//            accountListBean.setDT_RowClass("abcclass");
-//
-//            Map<String, String> attr = new HashMap<>();
-//            attr.put("width", "100px");
-//            accountListBean.setDT_RowAttr(attr);
-//
-//            accountListBeanList.add(accountListBean);
-//        }
-//
-//        DataTablesOutput<AccountListBean> output = new DataTablesOutput<>();
-//        output.setData(accountListBeanList);
-//        output.setDraw(input.getDraw());
-//        output.setRecordsTotal(accountExRepository.countByExample(null));
-//        output.setRecordsFiltered(accountExRepository.countByExample(input));
-//
-//        return output;
-//    }
+    @ResponseBody
+    @RequestMapping(value = "/list/json", method = RequestMethod.GET)
+    public DataTablesOutput<AccountListBean> getListJson(@Validated DataTablesInput input) {
+
+        RowBounds rowBounds = new RowBounds(input.getStart(), input.getLength());
+        List<Account> accountList = accountService.findByDatatablesInput(input);
+
+        // 追加項目、HTMLエスケープ
+        List<AccountListBean> accountListBeanList = new ArrayList<>();
+        for (Account account : accountList) {
+            AccountListBean accountListBean = beanMapper.map(account, AccountListBean.class);
+            accountListBean.setOperations("<a href=\"http://www.stnet.co.jp\">参照</a>");
+
+
+            accountListBean.setDT_RowId(account.getUsername() + "_");
+            accountListBean.setDT_RowClass("abcclass");
+
+            Map<String, String> attr = new HashMap<>();
+            attr.put("width", "100px");
+            accountListBean.setDT_RowAttr(attr);
+
+            accountListBeanList.add(accountListBean);
+        }
+
+        DataTablesOutput<AccountListBean> output = new DataTablesOutput<>();
+        output.setData(accountListBeanList);
+        output.setDraw(input.getDraw());
+        output.setRecordsTotal(accountService.countByDatatablesInput(null));
+        output.setRecordsFiltered(accountService.countByDatatablesInput(input));
+
+        return output;
+    }
+
+    @GetMapping("initdata")
+    public String initData(Model model) {
+
+        accountService.initMany(1000, 1000);
+
+        return "account/initdataComplate";
+
+    }
 
 }

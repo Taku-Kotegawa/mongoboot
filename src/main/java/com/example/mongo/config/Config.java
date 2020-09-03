@@ -1,5 +1,6 @@
 package com.example.mongo.config;
 
+import com.example.mongo.app.common.RequestDataValueProcessorPostProcessor;
 import com.example.mongo.app.common.filter.InputValidationFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,9 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.terasoluna.gfw.common.exception.ExceptionLogger;
 import org.terasoluna.gfw.common.exception.SimpleMappingExceptionCodeResolver;
 import org.terasoluna.gfw.web.exception.ExceptionLoggingFilter;
+import org.terasoluna.gfw.web.mvc.support.CompositeRequestDataValueProcessor;
+import org.terasoluna.gfw.web.token.transaction.TransactionTokenInterceptor;
+import org.terasoluna.gfw.web.token.transaction.TransactionTokenRequestDataValueProcessor;
 
 import java.util.LinkedHashMap;
 

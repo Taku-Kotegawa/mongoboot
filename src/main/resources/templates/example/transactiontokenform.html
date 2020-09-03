@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>トランザクショントークン</title>
+</head>
+<body>
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>トランザクショントークン</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+
+        <div id="expiredMessage" th:class="|callout callout-${resultMessages.type}|"
+             th:if="${resultMessages} != null">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
+        <form th:action="@{/transactiontoken}" th:object="${transactionTokenForm}" autocomplete="off" method="post">
+
+            <div>
+                この画面はTransactionTokenによる２重送信防止を実装しています。画面を複製したり、更新ボタンを押下するとエラー画面が表示されます。
+            </div>
+            <div>
+                ページ番号は「<span th:text="${transactionTokenForm.screenId}"></span>」
+            </div>
+
+            <div class="form-group row">
+                <label for="text001" class="col-4 col-form-label">
+                    テキスト001
+                </label>
+                <input id="text001" name="text001" class="form-control col-10" th:value="*{text001}" th:disabled="${transactionTokenForm.screenId != 1}" />
+            </div>
+
+            <div class="form-group row">
+                <label for="text002" class="col-4 col-form-label">
+                    テキスト002
+                </label>
+                <input id="text002" name="text002" class="form-control col-10" th:value="*{text002}" th:disabled="${transactionTokenForm.screenId != 2}" />
+            </div>
+
+            <div class="form-group row">
+                <label for="text003" class="col-4 col-form-label">
+                    テキスト003
+                </label>
+                <input id="text003" name="text003" class="form-control col-10" th:value="*{text003}" th:disabled="${transactionTokenForm.screenId != 3}" />
+            </div>
+
+            <div class="form-group row">
+                <label for="text004" class="col-4 col-form-label">
+                    テキスト004
+                </label>
+                <input id="text004" name="text004" class="form-control col-10" th:value="*{text004}" th:disabled="${transactionTokenForm.screenId != 4}" />
+            </div>
+
+            <button type="submit" name="1" class="btn btn-button">1へ進む</button>
+            <button type="submit" name="2" class="btn btn-button">2へ進む</button>
+            <button type="submit" name="3" class="btn btn-button">3へ進む</button>
+            <button type="submit" name="4" class="btn btn-button">4へ進む</button>
+            <button type="submit" name="5" class="btn btn-button">リダイレクトして1に戻る</button>
+
+        </form>
+
+        <!-- ここより上にメインコンテンツを記入 -->
+    </div>
+</section>
+<script>
+  $(function () {
+
+  });
+
+</script>
+</body>
+</html>

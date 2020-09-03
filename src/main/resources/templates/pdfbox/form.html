@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html th:replace="~{/layout/template :: layout(~{::title},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>pdf分割</title>
+</head>
+<body>
+<section class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-18">
+                <!-- ページタイトルを記入 -->
+                <h3>pdf分割</h3>
+            </div>
+            <div class="col-18">
+                <!-- ページタイトル右の余白 -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+
+        <div id="expiredMessage" th:class="|callout callout-${resultMessages.type}|"
+             th:if="${resultMessages} != null">
+            <ul>
+                <li th:each="message : ${resultMessages}"
+                    th:utext="${#messages.msgWithParams(message.code, message.args)}"></li>
+            </ul>
+        </div>
+        <!-- ここより下にメインコンテンツを記入 -->
+        <form autocomplete="off"
+              enctype="multipart/form-data" method="POST" th:action="@{/pdfbox}" th:object="${pdfboxForm}">
+
+            <div class="form-group row">
+                <div class="col-12">
+                    <label for="startPage">開始ページ番号*</label>
+                    <input class="form-control" name="startPage" th:errorclass="is-invalid"/>
+                    <span class="invalid-feedback" th:errors="*{startPage}"/>
+                </div>
+
+                <div class="col-12">
+                    <label for="endPage">終了ページ番号</label>
+                    <input class="form-control" name="endPage" th:errorclass="is-invalid"/>
+                    <span class="invalid-feedback" th:errors="*{endPage}"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-36">
+                    <input class="btn-button" id="download" name="download" type="submit" value="ダウンロード"/>
+                </div>
+            </div>
+        </form>
+
+        <!-- ここより上にメインコンテンツを記入 -->
+    </div>
+</section>
+</body>
+</html>
