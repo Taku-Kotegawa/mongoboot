@@ -6,6 +6,8 @@ import com.example.mongo.app.account.AccountCreateForm.CreateAccount;
 import com.example.mongo.app.common.StringUtils;
 import com.example.mongo.app.common.datatables.DataTablesInput;
 import com.example.mongo.app.common.datatables.DataTablesOutput;
+import com.example.mongo.domain.cassandra.model.CassandraAccount;
+import com.example.mongo.domain.cassandra.service.CassandraAccountService;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.AccountImage;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
@@ -58,6 +60,10 @@ public final class AccountController {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private CassandraAccountService cassandraAccountService;
+
 
     @ModelAttribute
     public AccountCreateForm setUpAccountCreateForm() {
@@ -191,6 +197,41 @@ public final class AccountController {
         return output;
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/list/json2", method = RequestMethod.GET)
+    public DataTablesOutput<AccountListBean> getListJson2(@Validated DataTablesInput input) {
+
+        RowBounds rowBounds = new RowBounds(input.getStart(), input.getLength());
+        List<CassandraAccount> accountList = cassandraAccountService.findByDatatablesInput(input);
+
+        // 追加項目、HTMLエスケープ
+        List<AccountListBean> accountListBeanList = new ArrayList<>();
+        for (CassandraAccount account : accountList) {
+            AccountListBean accountListBean = beanMapper.map(account, AccountListBean.class);
+            accountListBean.setOperations("<a href=\"http://www.stnet.co.jp\">参照</a>");
+
+
+            accountListBean.setDT_RowId(account.getUsername() + "_");
+            accountListBean.setDT_RowClass("abcclass");
+
+            Map<String, String> attr = new HashMap<>();
+            attr.put("width", "100px");
+            accountListBean.setDT_RowAttr(attr);
+
+            accountListBeanList.add(accountListBean);
+        }
+
+        DataTablesOutput<AccountListBean> output = new DataTablesOutput<>();
+        output.setData(accountListBeanList);
+        output.setDraw(input.getDraw());
+//        output.setRecordsTotal(cassandraAccountService.countByDatatablesInput(null));
+//        output.setRecordsFiltered(cassandraAccountService.countByDatatablesInput(input));
+
+        return output;
+    }
+
+
     @GetMapping("initdata")
     public String initData(Model model) {
 
@@ -199,5 +240,15 @@ public final class AccountController {
         return "account/initdataComplate";
 
     }
+
+    @GetMapping("initdata2")
+    public String initData2(Model model) {
+
+        cassandraAccountService.initMany(100, 10000);
+
+        return "account/initdataComplate";
+
+    }
+
 
 }

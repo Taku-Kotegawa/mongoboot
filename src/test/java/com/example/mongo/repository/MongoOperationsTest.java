@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @Slf4j
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"classpath:test-context.xml"})
+//@ContextConfiguration(locations = {"classpath:test-context.xml"})
 public class MongoOperationsTest {
 
     @Autowired
