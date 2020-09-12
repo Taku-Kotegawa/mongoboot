@@ -3,11 +3,9 @@ package com.example.mongo.app.account;
 
 import com.example.mongo.app.account.AccountCreateForm.Confirm;
 import com.example.mongo.app.account.AccountCreateForm.CreateAccount;
-import com.example.mongo.app.common.StringUtils;
 import com.example.mongo.app.common.datatables.DataTablesInput;
 import com.example.mongo.app.common.datatables.DataTablesOutput;
 import com.example.mongo.domain.cassandra.model.CassandraAccount;
-import com.example.mongo.domain.cassandra.service.CassandraAccountService;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.AccountImage;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
@@ -61,8 +59,8 @@ public final class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @Autowired
-    private CassandraAccountService cassandraAccountService;
+//    @Autowired
+//    private CassandraAccountService cassandraAccountService;
 
 
     @ModelAttribute
@@ -203,7 +201,8 @@ public final class AccountController {
     public DataTablesOutput<AccountListBean> getListJson2(@Validated DataTablesInput input) {
 
         RowBounds rowBounds = new RowBounds(input.getStart(), input.getLength());
-        List<CassandraAccount> accountList = cassandraAccountService.findByDatatablesInput(input);
+//        List<CassandraAccount> accountList = cassandraAccountService.findByDatatablesInput(input);
+        List<CassandraAccount> accountList = new ArrayList<>();
 
         // 追加項目、HTMLエスケープ
         List<AccountListBean> accountListBeanList = new ArrayList<>();
@@ -244,7 +243,7 @@ public final class AccountController {
     @GetMapping("initdata2")
     public String initData2(Model model) {
 
-        cassandraAccountService.initMany(100, 10000);
+//        cassandraAccountService.initMany(100, 10000);
 
         return "account/initdataComplate";
 
