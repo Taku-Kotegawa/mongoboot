@@ -6,6 +6,8 @@ import com.example.mongo.app.account.AccountCreateForm.CreateAccount;
 import com.example.mongo.app.common.datatables.DataTablesInput;
 import com.example.mongo.app.common.datatables.DataTablesOutput;
 import com.example.mongo.domain.cassandra.model.CassandraAccount;
+import com.example.mongo.domain.elasticsearch.model.Article;
+import com.example.mongo.domain.elasticsearch.service.EsService;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.AccountImage;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
@@ -20,6 +22,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -61,6 +65,9 @@ public final class AccountController {
 
 //    @Autowired
 //    private CassandraAccountService cassandraAccountService;
+
+    @Autowired
+    private EsService esService;
 
 
     @ModelAttribute
@@ -157,8 +164,12 @@ public final class AccountController {
      */
     @GetMapping(value = "list")
     public String list(Model model) {
-
         return "account/list";
+    }
+
+    @GetMapping(value = "listes")
+    public String listEs(Model model) {
+        return "account/listes";
     }
 
 
@@ -231,6 +242,39 @@ public final class AccountController {
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/list/json3", method = RequestMethod.GET)
+    public DataTablesOutput<AccountListBean> getListJson3(@Validated DataTablesInput input) {
+
+        SearchHits<Article> accountList = esService.findByDatatablesInput2(input);
+
+
+        // 追加項目、HTMLエスケープ
+        List<AccountListBean> accountListBeanList = new ArrayList<>();
+        for (SearchHit<Article> account : accountList.getSearchHits()) {
+            AccountListBean accountListBean = beanMapper.map(account.getContent(), AccountListBean.class);
+            accountListBean.setOperations("<a href=\"\">参照</a>");
+
+            accountListBean.setDT_RowId(account.getId());
+            accountListBean.setDT_RowClass("abcclass");
+
+            Map<String, String> attr = new HashMap<>();
+            attr.put("width", "100px");
+            accountListBean.setDT_RowAttr(attr);
+
+            accountListBeanList.add(accountListBean);
+        }
+
+        DataTablesOutput<AccountListBean> output = new DataTablesOutput<>();
+        output.setData(accountListBeanList);
+        output.setDraw(input.getDraw());
+        output.setRecordsTotal(esService.countAll());
+        output.setRecordsFiltered(esService.countByDatatablesInput2(input));
+
+        return output;
+    }
+
+
     @GetMapping("initdata")
     public String initData(Model model) {
 
@@ -249,5 +293,13 @@ public final class AccountController {
 
     }
 
+    @GetMapping("initdata3")
+    public String initData3(Model model) {
+
+        esService.initMany(1000, 99999);
+
+        return "account/initdataComplate";
+
+    }
 
 }

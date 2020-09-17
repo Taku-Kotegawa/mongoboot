@@ -1,5 +1,7 @@
 package com.example.mongo.app.welcome;
 
+import com.example.mongo.domain.elasticsearch.model.Article;
+import com.example.mongo.domain.elasticsearch.service.EsService;
 import com.example.mongo.domain.model.authentication.Account;
 import com.example.mongo.domain.model.authentication.LoggedInUser;
 import com.example.mongo.domain.service.authentication.AccountSharedService;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
+import java.util.List;
+
 @Controller
 public class WelcomeController {
 
@@ -18,6 +22,9 @@ public class WelcomeController {
 
     @Autowired
     SpringResourceTemplateResolver springResourceTemplateResolver;
+
+    @Autowired
+    EsService esService;
 
 
     @GetMapping("/")
